@@ -1,6 +1,3 @@
-require 'active_model'
-require 'active_support/all'
-require 'active_model/validations'
 require 'mail'
 
 # Public: Neat email validator little bit improved. More information on 

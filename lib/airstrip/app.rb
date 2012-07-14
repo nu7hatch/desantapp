@@ -4,6 +4,16 @@ module Airstrip
     set :views, File.join(AIRSTRIP_PATH, 'views')
     enable :sessions
 
+    helpers do
+      def logged_in?
+        !!session[:logged_in]
+      end
+
+      def logged_as
+        session[:logged_in].to_s
+      end
+    end
+
     post "/signup.json" do
       content_type "application/json"
       SignupService.call(self).to_json
@@ -15,18 +25,34 @@ module Airstrip
 
     get "/admin" do
       if signed_in?
-        redirect_to "/admin/signups"
+        redirect_to "/admin/dashboard"
       else
         erb :login
       end
     end
 
-    get "/admin/signups" do
-      erb :signups_list
+    post "/admin/session" do
+      return if logged_in?
+
+      login_form = AdminLoginForm.new(*params.values_at(:login, :password))
+      login_form.call { |login| session[:logged_in] = login }.to_json
     end
 
-    post "/admin/session" do
+    get "/admin/logout" do
+      session[:logged_in] = false
+    end
 
+    get "/admin/dashboard" do
+      erb :'admin/dashboard'
+    end
+
+    get "/admin/signups" do
+    end
+
+    get "/admin/locations" do
+    end
+
+    get "/admin/referrers" do
     end
   end
 end

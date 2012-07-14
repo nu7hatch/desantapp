@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency "activerecord"
   s.add_dependency "activemodel"
   s.add_dependency "sinatra"
+  s.add_dependency "bcrypt-ruby"
 
   s.add_development_dependency "rspec", "~> 2.4"
   s.add_development_dependency "mocha", "0.11.4"

@@ -10,6 +10,12 @@ RSpec::Core::RakeTask.new do |t|
   t.pattern = "./spec/{,**/}*_spec.rb" 
 end
 
+desc "Generates password hash for the passphrase specified in PASS=x"
+task :password_hash do
+  require 'bcrypt'
+  puts "Your password hash: %s" % BCrypt::Password.create(ENV["PASS"])
+end
+
 namespace :db do
   desc "Migrate the database through scripts in db/migrate. Target specific version with VERSION=x"
   task :migrate => :environment do
