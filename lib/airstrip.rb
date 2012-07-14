@@ -1,3 +1,4 @@
+require 'sprockets'
 require 'sinatra'
 require 'json'
 require 'active_record'
@@ -18,6 +19,7 @@ require 'airstrip/version'
 require 'airstrip/models/signup'
 require 'airstrip/services/signup_service'
 require 'airstrip/forms/admin_login_form'
+require 'airstrip/presenters/latest_signups_presenter'
 require 'airstrip/app'
 
 module Airstrip

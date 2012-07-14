@@ -15,6 +15,11 @@ module Airstrip
   class Signup < ActiveRecord::Base
     validates :email, :email => true, :uniqueness => true
 
+    # Public: Scope returning latest signups ordered by date.
+    def self.latest
+      order(:created_at)
+    end
+
     # Public: Shorthand for setting up client information.
     #
     # ip       - A String IP address.
