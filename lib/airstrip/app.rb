@@ -2,9 +2,14 @@ require 'airstrip/helpers/auth_helpers'
 
 module Airstrip
   class App < Sinatra::Application
-    set :public_folder, File.join(AIRSTRIP_PATH, 'static')
+    set :root, AIRSTRIP_PATH
+    set :public_folder, File.join(AIRSTRIP_PATH, 'front/static')
     set :views, File.join(AIRSTRIP_PATH, 'views')
-    enable :sessions
+    set :assets, File.join(AIRSTRIP_PATH, 'front') 
+    set :sessions, true
+
+    # Use asset pipeline.
+    use Support::AssetPipeline, '/assets'
 
     helpers AuthHelpers
 

@@ -26,9 +26,10 @@ Gem::Specification.new do |s|
   s.add_dependency "bcrypt-ruby"
   s.add_dependency "kaminari"
   s.add_dependency "padrino-helpers"
-  s.add_dependency "machinist", "~> 2.0"
-  s.add_dependency "ffaker"
+  s.add_dependency "sprockets"
 
+  s.add_development_dependency "machinist", "~> 2.0"
+  s.add_development_dependency "ffaker"
   s.add_development_dependency "rspec", "~> 2.4"
   s.add_development_dependency "mocha", "0.11.4"
 end
