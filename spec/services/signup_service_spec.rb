@@ -15,7 +15,7 @@ describe Airstrip::SignupService do
     end
 
     it "creates new signup entry" do
-      res = subject.call(app)
+      res = subject.new(app).call
       res.should == { "email" => "chris@nu7hat.ch" }
       Airstrip::Signup.find_by_email("chris@nu7hat.ch").should be
     end
@@ -31,7 +31,11 @@ describe Airstrip::SignupService do
     end
 
     it "returns error messages" do
-      res = subject.call(app)
+      on_error = false
+      service = subject.new(app)
+      service.on_error { on_error = true }
+      res = service.call
+      on_error.should be
       res.full_messages.to_sentence.should == "Email has invalid format"
     end
   end

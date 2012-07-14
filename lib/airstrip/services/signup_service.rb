@@ -1,21 +1,24 @@
 module Airstrip
   # Public: Signup service registers new email address signed up
   # from the landing page.
-  class SignupService
+  class SignupService < Struct.new(:app)
+    include Support::Callbacks
+
+    define_callback :on_error
+
     # Public: Default operation, creates new signup entry.
     # 
-    # app - A Sinatra::Application instance.
-    #
     # Returns attributes of the created record or errors when something
     # went wrong.
-    def self.call(app)
-      @signup = Signup.new(app.params[:signup])
-      @signup.set_client_info(app.request.ip, app.session[:referrer])
-      @signup.save!
+    def call
+      signup = Signup.new(app.params[:signup])
+      signup.set_client_info(app.request.ip, app.session[:referrer])
+      signup.save!
 
-      @signup.attributes.pick('email')
+      signup.attributes.pick('email')
     rescue => e # TODO: specify activerecord error
-      @signup.errors
+      run_callback :on_error
+      signup.errors
     end
   end
 end

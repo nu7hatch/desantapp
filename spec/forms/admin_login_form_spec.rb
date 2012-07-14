@@ -12,19 +12,21 @@ describe Airstrip::AdminLoginForm do
 
   context "when given credentials are valid" do
     it "logs in correctly and executes passed block" do
-      block_call = nil
-      res = subject.new("jack", "secret").call { |login| block_call = login }
+      on_success = nil
+      res = subject.new("jack", "secret").call { |login| on_success = login }
       res.should == { :login => "jack" }
-      block_call.should == "jack"
+      on_success.should == "jack"
     end
   end
 
   context "when errors encountered" do
     it "returns error messages and doesn't execute passed block" do
-      block_call = nil
-      res = subject.new("joe", "hello").call { |login| block_call = login }
+      on_success, on_error = false, false
+      form = subject.new("joe", "hello")
+      form.on_error { on_error = true }
+      res = form.call { |login| on_success = login }
       res.full_messages.to_sentence.should == "Credentials are invalid"
-      block_call.should_not be
+      on_success.should_not be
     end
   end
 end

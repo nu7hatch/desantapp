@@ -10,7 +10,10 @@ module Airstrip
 
     post "/signup.json" do
       content_type "application/json"
-      SignupService.call(self).to_json
+
+      signup = SignupService.new(self)
+      signup.on_error { status 400 }
+      signup.call.to_json
     end
 
     get "/" do
@@ -19,34 +22,39 @@ module Airstrip
 
     get "/admin" do
       if logged_in?
-        redirect_to "/admin/dashboard"
+        redirect to("/admin/dashboard")
       else
         erb :login
       end
     end
 
-    post "/admin/session" do
-      return if logged_in?
+    post "/admin/session.json" do
+      content_type "application/json"
 
-      login_form = AdminLoginForm.new(*params.values_at(:login, :password))
-      login_form.call { |login| authenticate!(login) }.to_json
+      # Passing if already logged in.
+      status 204 and return if logged_in?
+
+      login = AdminLoginForm.new(*params.values_at(:login, :password))
+      login.on_error { status 400 }
+      login.call { |login| authenticate!(login) and redirect to("/") }.to_json
     end
 
     get "/admin/logout" do
       log_out!
+      redirect to("/")
     end
 
     get "/admin/dashboard" do
-      erb :'admin/dashboard'
+      erb :dashboard
     end
 
-    get "/admin/signups" do
+    get "/admin/signups.json" do
     end
 
-    get "/admin/locations" do
+    get "/admin/locations.json" do
     end
 
-    get "/admin/referrers" do
+    get "/admin/referrers.json" do
     end
   end
 end

@@ -5,6 +5,7 @@ require 'active_model'
 require 'active_support/all'
 require 'active_model/validations'
 
+require 'support/callbacks'
 require 'core_ext/hash'
 require 'active_model/validators/email_validator'
 require 'active_model/validators/admin_credentials_validator'
