@@ -5,10 +5,12 @@ module Airstrip
     enable :sessions
 
     helpers do
+      # Public: Returns true when admin is logged in. 
       def logged_in?
         !!session[:logged_in]
       end
 
+      # Public: Returns admin's name if logged in.
       def logged_as
         session[:logged_in].to_s
       end

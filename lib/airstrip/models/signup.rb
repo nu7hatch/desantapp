@@ -15,6 +15,11 @@ module Airstrip
   class Signup < ActiveRecord::Base
     validates :email, :email => true, :uniqueness => true
 
+    # Public: Shorthand for setting up client information.
+    #
+    # ip       - A String IP address.
+    # referrer - A String HTTP referrer address.
+    #
     def set_client_info(ip, referrer)
       self.ip_address, self.referrer = ip, referrer
     end
