@@ -4,8 +4,8 @@ module Support
   # Internal: Asset pipeline serves all dynamically generated asssets
   # through sprockets pipeline.
   class AssetPipeline
-    # TODO: tests should go only on dev env.
-    DEFAULT_ASSET_PATHS = %w(app/main app/look app/test lib)
+    # List of default asset paths.
+    DEFAULT_ASSET_PATHS = %w(app lib)
 
     # Public: Constructor. Initializes sprockets environment.
     def initialize(app, prefix)
@@ -42,7 +42,9 @@ module Support
       env["PATH_INFO"] = path_info
     end
     
-    # Public: Appends list of default asset paths to sprockets env.
+    protected
+
+    # Internal: Appends list of default asset paths to sprockets env.
     def append_default_paths!
       DEFAULT_ASSET_PATHS.map do |path| 
         @sprockets.append_path(File.join(@app.settings.assets, path))

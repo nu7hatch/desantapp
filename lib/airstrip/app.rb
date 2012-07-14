@@ -2,6 +2,7 @@ require 'airstrip/helpers/auth_helpers'
 
 module Airstrip
   class App < Sinatra::Application
+    set :app_title, "Airstrip"
     set :root, AIRSTRIP_PATH
     set :public_folder, File.join(AIRSTRIP_PATH, 'front/static')
     set :views, File.join(AIRSTRIP_PATH, 'views')
@@ -11,7 +12,19 @@ module Airstrip
     # Use asset pipeline.
     use Support::AssetPipeline, '/assets'
 
+    # Extra helpers.
     helpers AuthHelpers
+
+    # Use javascript test suite only in test or development mode.
+    if RACK_ENV != 'prodcution'
+      get "/test" do
+        erb :test_suite, :layout => false
+      end
+    end
+
+    get "/" do
+      erb :index
+    end
 
     post "/signup.json" do
       content_type "application/json"
@@ -19,10 +32,6 @@ module Airstrip
       signup_s = SignupService.new(self)
       signup_s.on_error { status 400 }
       signup_s.call.to_json
-    end
-
-    get "/" do
-      erb :index
     end
 
     get "/admin" do
