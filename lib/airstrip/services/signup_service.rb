@@ -5,20 +5,27 @@ module Airstrip
     include Support::Callbacks
 
     define_callback :on_error
+    
+    # Internal: mass assignment protection.
+    def allowed_attributes
+      %w(email)
+    end
 
     # Public: Default operation, creates new signup entry.
     # 
     # Returns attributes of the created record or errors when something
     # went wrong.
     def call
-      signup = Signup.new(app.params[:signup])
+      signup_attrs = (app.params[:signup] || {}).pick(*allowed_attributes)
+      signup = Signup.new(signup_attrs)
       signup.set_client_info(app.request.ip, app.session[:referrer])
-      signup.save!
-
-      signup.attributes.pick('email')
-    rescue => e # TODO: specify activerecord error
-      run_callback :on_error
-      signup.errors
+      
+      if signup.save
+        signup.attributes.pick('email')
+      else
+        run_callback :on_error
+        { :error => signup.errors.full_messages.to_sentence }
+      end
     end
   end
 end

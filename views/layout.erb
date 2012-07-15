@@ -16,7 +16,17 @@
       </section>
     </div>
 
-    <script src="/assets/main/app.js"></script>
-    <script src="/assets/boot.js"></script>
+    <footer role="contentinfo">
+      <div class="vessel">
+        <p>
+          Copyleft <%= Time.now.year %> by nu7hatch<br />
+          <small>Some rights reserved</small>
+        </p>
+      </div>
+    </footer>
+
+    <%= erb :_signup_form %>
+    
+    <script src="/assets/setup.js"></script>
   </body>
 </html>

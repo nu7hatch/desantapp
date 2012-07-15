@@ -8,6 +8,12 @@ module Airstrip
     set :views, File.join(AIRSTRIP_PATH, 'views')
     set :assets, File.join(AIRSTRIP_PATH, 'front') 
     set :sessions, true
+    
+    set(:only_env) do |*envs|
+      condition do
+        envs.any? { |env| RACK_ENV == env.to_s }
+      end
+    end
 
     # Use asset pipeline.
     use Support::AssetPipeline, '/assets'
@@ -15,18 +21,22 @@ module Airstrip
     # Extra helpers.
     helpers AuthHelpers
 
-    # Use javascript test suite only in test or development mode.
-    if RACK_ENV != 'prodcution'
-      get "/test" do
-        erb :test_suite, :layout => false
+    before do
+      begin
+        params.merge!(JSON.parse(request.body.read.to_s))
+      rescue JSON::ParserError
       end
+    end
+
+    get "/test", :only_env => ['development', 'test'] do
+      erb :test_suite, :layout => false
     end
 
     get "/" do
       erb :index
     end
 
-    post "/signup.json" do
+    post "/signup", :provides => 'json' do
       content_type "application/json"
 
       signup_s = SignupService.new(self)
@@ -36,13 +46,14 @@ module Airstrip
 
     get "/admin" do
       if logged_in?
-        redirect to("/admin/dashboard")
+        erb :dashboard
       else
+        status 401
         erb :login
       end
     end
 
-    post "/admin/session.json" do
+    post "/admin/session", :provides => 'json' do
       content_type "application/json"
 
       # Passing if already logged in.
@@ -58,22 +69,25 @@ module Airstrip
       redirect to("/")
     end
 
-    get "/admin/dashboard" do
-      erb :dashboard
-    end
-
-    get "/admin/signups.json" do
+    before "/admin/api/*" do
       content_type "application/json"
 
+      unless logged_in?
+        status 401
+        halt({ :error => "Unauthorized" }.to_json)
+      end
+    end
+
+    get "/admin/api/signups", :provides => 'json' do
       signups_p = LatestSignupsPresenter.new(params[:page])
       signups_p.call.to_json
     end
 
-    get "/admin/locations.json" do
+    get "/admin/api/locations", :provides => 'json' do
       
     end
 
-    get "/admin/referrers.json" do
+    get "/admin/api/referrers", :provides => 'json' do
       
     end
   end

@@ -25,7 +25,7 @@ describe Airstrip::AdminLoginForm do
       form = subject.new("joe", "hello")
       form.on_error { on_error = true }
       res = form.call { |login| on_success = login }
-      res.full_messages.to_sentence.should == "Credentials are invalid"
+      res[:error].should == "Credentials are invalid"
       on_success.should_not be
     end
   end

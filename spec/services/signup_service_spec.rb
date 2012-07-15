@@ -8,7 +8,7 @@ describe Airstrip::SignupService do
   context "when given email address is valid and not duplicated" do
     let :app do
       stub(
-        :params  => { :signup => { :email => "chris@nu7hat.ch" } },
+        :params  => { :signup => { 'email' => "chris@nu7hat.ch" } },
         :request => stub(:ip => "127.0.0.1"),
         :session => { :referrer => "http://www.dummy.com/blog/post" }
       )
@@ -36,7 +36,7 @@ describe Airstrip::SignupService do
       service.on_error { on_error = true }
       res = service.call
       on_error.should be
-      res.full_messages.to_sentence.should == "Email has invalid format"
+      res[:error].should == "Email has invalid format"
     end
   end
 end

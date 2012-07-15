@@ -20,7 +20,7 @@ module Airstrip
         { :login => login }
       else
         run_callback :on_error
-        errors
+        { :error => errors.full_messages.to_sentence }
       end
     end
   end
