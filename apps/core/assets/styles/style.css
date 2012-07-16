@@ -124,7 +124,7 @@ form.signup .buttons .submit:hover {
    background: #e3941c;
    box-shadow: 0 0 5px rgba(0,0,0,.3), inset 3px 3px 10px rgba(255,235,100,.2);
 }
-form.signup .buttons .submit:focus {
+form.signup .buttons .submit:active {
    border: 1px solid #f3aa1c;
    border-top: 1px solid rgb(109,70,1);
    border-left: 1px solid rgb(109,70,1);
