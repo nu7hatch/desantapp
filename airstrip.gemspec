@@ -24,9 +24,10 @@ Gem::Specification.new do |s|
   s.add_dependency "activemodel"
   s.add_dependency "sinatra"
   s.add_dependency "bcrypt-ruby"
-  s.add_dependency "kaminari"
+  s.add_dependency "kaminari", "~> 0.13.0"
   s.add_dependency "padrino-helpers"
   s.add_dependency "sprockets"
+  s.add_dependency "ejs"
 
   s.add_development_dependency "machinist", "~> 2.0"
   s.add_development_dependency "ffaker"
