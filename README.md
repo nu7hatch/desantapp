@@ -37,8 +37,8 @@ are routed in config.ru, with standard Rack::Router.
 
 The main goal of the experiment was to provide system for easy and robust
 work on _Backbone.js_ application and reusable backend elements. It's also
-aims to get rid of stupid Rails' assumptions that action = page, and model
-is should in forms and presentations. In _Airstrip_, **models** are separated
+aims to get rid of stupid Rails' assumptions that action = page, and models
+are used both in forms and presentations. In _Airstrip_, **models** are separated
 from **forms** and **presenters**. Model takes care about business logic, when
 forms handle input and presenters output. More sophisticated operations
 are handled with **services**. This design makes the stuff easy to test
