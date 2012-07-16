@@ -1,5 +1,4 @@
 # -*- ruby -*-
-require "bundler/gem_tasks"
 require "rspec/core/rake_task"
 
 desc 'Default: run specs.'
@@ -7,7 +6,7 @@ task :default => :spec
 
 desc "Run specs"
 RSpec::Core::RakeTask.new do |t|
-  t.pattern = "./spec/{,**/}*_spec.rb" 
+  t.pattern = "{.,apps/*}/spec/{,**/}*_spec.rb" 
 end
 
 desc "Generates password hash for the passphrase specified in PASS=x"
@@ -29,15 +28,13 @@ namespace :db do
   end
 end
 
-task :environment do
-  require File.expand_path('../config/boot', __FILE__)
-end
-
 desc "Opens console with loaded app env."
-task :console do
-  $LOAD_PATH.unshift("./lib")
-  require 'airstrip'
+task :console => :environment do
   require 'irb'
   ARGV.clear
   IRB.start
+end
+
+task :environment do
+  require File.expand_path('../boot', __FILE__)
 end

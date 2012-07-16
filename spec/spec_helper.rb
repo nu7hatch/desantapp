@@ -1,6 +1,6 @@
 ENV['RACK_ENV'] = 'test'
 
-require File.expand_path("../../config/boot", __FILE__)
+require File.expand_path("../../boot", __FILE__)
 
 require 'rspec'
 require 'mocha'
@@ -13,7 +13,7 @@ ActiveRecord::Migrator.migrate(migrations, 0)
 ActiveRecord::Migrator.migrate(migrations, nil)
 
 # Load extra spec helpers and support files.
-Dir[File.expand_path("../spec_helpers/**/*.rb", __FILE__)].each do |helper| 
+Dir[File.expand_path("../support/**/*.rb", __FILE__)].each do |helper| 
   require helper
 end
 

@@ -6,24 +6,20 @@ require 'active_model'
 require 'active_support/all'
 require 'active_model/validations'
 
-require 'support/callbacks'
-require 'support/asset_pipeline'
-require 'support/env_condition'
-require 'support/json_params_condition'
 require 'core_ext/hash'
-require 'active_model/validators/email_validator'
-require 'active_model/validators/admin_credentials_validator'
+require 'validators/email_validator'
+require 'validators/admin_credentials_validator'
 
-unless defined?(AIRSTRIP_PATH)
-  AIRSTRIP_PATH = File.expand_path("../../", __FILE__)
-end
+require 'reusable/callbacks'
+require 'reusable/asset_pipeline'
+require 'reusable/conditions/env_condition'
+require 'reusable/conditions/json_params_condition'
+require 'reusable/actions/test_action'
+require 'reusable/apps_foundation'
+require 'reusable/application'
 
 require 'airstrip/version'
-require 'airstrip/models/signup'
-require 'airstrip/services/signup_service'
-require 'airstrip/forms/admin_login_form'
-require 'airstrip/presenters/latest_signups_presenter'
-require 'airstrip/app'
 
 module Airstrip
+  extend Reusable::AppsFoundation
 end

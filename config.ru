@@ -1,7 +1,10 @@
 # -*- ruby -*-
-require File.expand_path('../config/boot', __FILE__)
-require 'airstrip'
+require File.expand_path('../boot', __FILE__)
 
 map '/' do
-  run Airstrip::App
+  run Airstrip::Core::App
+end
+
+map '/admin' do
+  run Airstrip::Admin::App
 end
