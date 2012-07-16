@@ -6,14 +6,19 @@ rescue LoadError
   exit(1)
 end
 
+# Rack environment configuration.
+RACK_ENV = ENV["RACK_ENV"] || 'development'
+
+# Application paths.
 ROOT_PATH = File.dirname(__FILE__)
 APPS_PATH = File.join(ROOT_PATH, 'apps')
 
-$LOAD_PATH.unshift(File.join(ROOT_PATH, 'lib'))
-$LOAD_PATH.unshift(APPS_PATH)
+# Configure load path.
+[ File.join(ROOT_PATH, 'lib'), APPS_PATH ].each do |path|
+  $LOAD_PATH.unshift(path)
+end
 
-RACK_ENV = ENV["RACK_ENV"] || 'development'
-
+# The app foundation.
 require 'airstrip'
 
 # Load all the configuration files
