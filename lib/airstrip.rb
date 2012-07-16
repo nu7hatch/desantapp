@@ -8,6 +8,8 @@ require 'active_model/validations'
 
 require 'support/callbacks'
 require 'support/asset_pipeline'
+require 'support/env_condition'
+require 'support/json_params_condition'
 require 'core_ext/hash'
 require 'active_model/validators/email_validator'
 require 'active_model/validators/admin_credentials_validator'

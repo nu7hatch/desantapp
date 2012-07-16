@@ -9,25 +9,16 @@ module Airstrip
     set :assets, File.join(AIRSTRIP_PATH, 'front') 
     set :sessions, true
     
-    set(:only_env) do |*envs|
-      condition do
-        envs.any? { |env| RACK_ENV == env.to_s }
-      end
-    end
+    # Extensions and custom conditions.
+    extend Support::EnvCondition
+    extend Support::JsonParamsCondition
 
     # Use asset pipeline.
     use Support::AssetPipeline, '/assets'
 
     # Extra helpers.
     helpers AuthHelpers
-
-    before do
-      begin
-        params.merge!(JSON.parse(request.body.read.to_s))
-      rescue JSON::ParserError
-      end
-    end
-
+    
     get "/test", :only_env => ['development', 'test'] do
       erb :test_suite, :layout => false
     end
@@ -36,7 +27,7 @@ module Airstrip
       erb :index
     end
 
-    post "/signup", :provides => 'json' do
+    post "/signup", :provides => 'json', :json_data_params => true do
       content_type "application/json"
 
       signup_s = SignupService.new(self)
