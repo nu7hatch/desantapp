@@ -1,5 +1,6 @@
 /*
  *= require h5b
+ *= require ./fontawesome
  */
 
 /* ==|== primary styles ===================================================== */
@@ -246,6 +247,11 @@ form.login .buttons #ajax_loader {
    color: #888;
    background: #EEE url("/admin/img/white_texture.png") repeat;
    text-shadow: 1px 1px 0 rgba(255,255,255,.9);
+}
+#content h2 i {
+   font-size: .7em;
+   color: #444;
+   opacity: .2;
 }
 #content #counter {
    position: absolute;

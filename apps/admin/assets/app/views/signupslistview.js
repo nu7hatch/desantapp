@@ -47,7 +47,8 @@ Airstrip.Admin.SignupsListView = Backbone.View.extend({
     render: function() {
         this.$el.html(this.template({
             id: 'signups',
-            title: "Recently signed users",
+            icon: 'user',
+            title: "Registered users",
             columns: ['#', 'E-mail', 'IP address', 'Registered at'],
         }))
 
