@@ -1,6 +1,6 @@
-Airstrip.Admin.SignupsListView = Backbone.View.extend({
+Airstrip.Admin.ReferrersListView = Backbone.View.extend({
     el: '#content',
-    template: JST['templates/admin/signups_list'],
+    template: JST['templates/admin/referrers_list'],
 
     render: function() {
         this.$el.html(this.template({

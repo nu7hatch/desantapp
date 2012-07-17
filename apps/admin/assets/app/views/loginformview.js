@@ -22,10 +22,8 @@ Airstrip.Admin.LoginSubmitButtonView = Backbone.View.extend({
             password: this.password.val(),
         }, {
             success: function(model, resp) {
-                Airstrip.renderFlash("success", "Successfully logged in!")
-                console.log(model)
-                console.log(Airstrip.Admin.router.session)
                 app.navigate('admin/', true)
+                Airstrip.renderFlash("success", "Welcome home, Master!")
             },
             error: function(model, resp) {
                 data = Airstrip.parseResponse(resp)

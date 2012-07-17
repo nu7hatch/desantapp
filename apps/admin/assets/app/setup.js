@@ -19,9 +19,7 @@ $(function() {
     Airstrip.Admin.router = new Airstrip.Admin.Router();
     app = Airstrip.Admin.router
     app.session.fetch().complete(function() {
-        if (!app.session.isAuthenticated()) {
-            app.navigate('admin/login', true)
-        }
+        Airstrip.Admin.chromeView = new Airstrip.Admin.ChromeView()
         Backbone.history.start({ pushState: true })
     })
 })

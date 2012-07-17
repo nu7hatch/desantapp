@@ -28,13 +28,15 @@ module Airstrip
 
       # Actions...
 
-      get "/" do
-        unless logged_in?
-          status 401
-          redirect to('/login')
+      %w{/ /signups /referrers /locations}.each do |path|
+        get path do
+          unless logged_in?
+            status 401
+            redirect to('/login')
+          end
+          
+          erb :default
         end
-        
-        erb :default
       end
 
       get "/login" do

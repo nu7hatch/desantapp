@@ -154,11 +154,85 @@ form.login .buttons .submit:active {
    font-size: 1.2em;
 }
 .flash.success {
-   background: #226611;
+   background: #449911;
    position: relative;
    z-index: 100;
    color: #EEFFBB;
    font-size: 1.2em;
 }
-
+#chrome .flash {
+   margin-left: -25px;
+   margin-right: -25px;
+}
+.logo h1 {
+   margin: 0;
+   padding: .2em 0;
+   float: left;
+   display: inline-block;
+   color: #FFF;
+   font-family: Bevan, serif;
+   font-weight: normal;
+   color: rgba(0,0,0,.55);
+   text-shadow: 0 1px 0 rgba(255,255,255,.25);
+}
+#menu {
+   background: #3322BB;
+   border-bottom: 1px solid rgba(0,0,0,.4);
+   box-shadow: inset 0px -1px 1px rgba(255,255,255,.5);
+   position: relative;
+   z-index: 101;
+}
+#menu nav {
+   float: right;
+   display: block;
+   margin-right: -26px;
+}
+#menu nav li {
+   display: inline-block;
+}
+#menu nav a {
+   font-size: .8em;
+   display: block;
+   padding: 1em .7em .9em .7em;
+   color: #DCF;
+   text-shadow: 1px 1px 0px rgba(0,0,0,.4);
+   outline: none;
+   margin: 0 1px 0 1px;
+   font-weight: bold;
+}
+#menu nav a:hover {
+   text-decoration: none;
+   position: relative;
+   z-index: 101;
+   background: rgba(30,10,50,.1);
+   color: #FFF;
+}
+#menu nav a:active {
+   text-decoration: none;
+   color: rgba(0,0,0,.8);
+   text-shadow: 0 1px 0 rgba(255,255,255,.2);
+   box-shadow: inset 0px 1px 1px rgba(30,10,50,.7);
+   border-right: 1px solid #4433CC;
+   margin: 0 0 0 1px;
+}
+#content h2 {
+   font-family: Bevan, serif;
+   font-size: 2.1em;
+   font-weight: normal;
+   margin: -24px -24px 1em -24px;
+   padding: 15px 25px 15px 25px;
+   color: #999;
+   background: #EEE;
+   text-shadow: 1px 1px 0 rgba(255,255,255,.9);
+}
+.vessel.content {
+   position: relative;
+   z-index: 100;
+   background: #FFF;
+   border: 1px solid #CCC;
+   border-bottom: 1px solid #999;
+   border-right: 1px solid #BBB;
+   padding: 25px;
+   margin-top: -1px;
+}
 /* ==|== media queries ====================================================== */

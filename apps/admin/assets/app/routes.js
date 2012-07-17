@@ -3,13 +3,16 @@ Airstrip.Admin.Router = Backbone.Router.extend({
         'admin/': 'home',
         'admin/login': 'login',
         'admin/signups': 'signupsList',
+        'admin/locations': 'locationsList',
+        'admin/referrers': 'referrersList',
     },
 
     initialize: function() {
         this.session = new Airstrip.Admin.Session();
     },
 
-    home: function() {        
+    home: function() {
+        Airstrip.Admin.chromeView.makeSureRender()
         this.navigate('admin/signups', true)
     },
     
@@ -19,7 +22,14 @@ Airstrip.Admin.Router = Backbone.Router.extend({
     },
 
     signupsList: function() {
-        Airstrip.Admin.signupsListView = new Airstrip.Admin.SignupsListView()
-        Airstrip.Admin.signupsListView.render()
-    }
+        (new Airstrip.Admin.SignupsListView()).render()
+    },
+
+    locationsList: function() {
+        (new Airstrip.Admin.LocationsListView()).render()
+    },
+
+    referrersList: function() {
+        (new Airstrip.Admin.ReferrersListView()).render()
+    },
 })
