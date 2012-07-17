@@ -17,7 +17,7 @@ module Airstrip
 
     # Public: Scope returning latest signups ordered by date.
     def self.latest
-      order(:created_at)
+      order('created_at DESC')
     end
 
     # Public: Shorthand for setting up client information.

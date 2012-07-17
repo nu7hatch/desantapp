@@ -10,6 +10,9 @@ html {
 body {
    background: url('/admin/img/light_wool.png') top left repeat;
 }
+#yield.logged {
+   margin-top: 62px;
+}
 a, a:visited {
    color: #329;
    text-decoration: none;
@@ -27,7 +30,7 @@ a:hover, a:active {
    margin: 60px auto 0 auto;
 }
 .login_form_wrapper {
-   background: #3322BB;
+   background: #3322BB url("/admin/img/bright_squares.png") top left repeat;
    padding: 2em 2em;
    box-shadow: inset 0 0 2px rgba(0,0,0,.7);
 }
@@ -105,6 +108,7 @@ form.login .buttons .submit:active {
 [role='contentinfo'] {
    text-align: center;
    margin-top: 2em;
+   margin-bottom: 3em;
 }
 [role='contentinfo'] p {
    font-size: .8em;
@@ -176,10 +180,12 @@ form.login .buttons .submit:active {
    text-shadow: 0 1px 0 rgba(255,255,255,.25);
 }
 #menu {
-   background: #3322BB;
+   background: #3322BB url("/admin/img/bright_squares.png") top left repeat;
    border-bottom: 1px solid rgba(0,0,0,.4);
-   box-shadow: inset 0px -1px 1px rgba(255,255,255,.5);
-   position: relative;
+   box-shadow: 0 1px 1px rgba(0,0,0,.5), inset 0px -1px 1px rgba(255,255,255,.5);
+   position: fixed;
+   top: 0;
+   width: 100%;
    z-index: 101;
 }
 #menu nav {
@@ -219,10 +225,18 @@ form.login .buttons .submit:active {
    font-family: Bevan, serif;
    font-size: 2.1em;
    font-weight: normal;
-   margin: -24px -24px 1em -24px;
-   padding: 15px 25px 15px 25px;
+   margin: -24px -24px 1px -24px;
+   padding: 15px 24px 30px 24px;
+   color: #888;
+   background: #EEE url("/admin/img/white_texture.png") repeat;
+   text-shadow: 1px 1px 0 rgba(255,255,255,.9);
+}
+#content #counter {
+   position: absolute;
+   font-size: .9em;
+   font-style: normal;
+   margin-top: -30px;
    color: #999;
-   background: #EEE;
    text-shadow: 1px 1px 0 rgba(255,255,255,.9);
 }
 .vessel.content {
@@ -233,6 +247,41 @@ form.login .buttons .submit:active {
    border-bottom: 1px solid #999;
    border-right: 1px solid #BBB;
    padding: 25px;
-   margin-top: -1px;
+}
+.listing_wrapper {
+   margin: 0 -24px -24px -24px;
+}
+table.listing {
+   width: 100%;
+}
+table.listing thead {
+}
+table.listing thead th {
+   background: #606060;
+   border-top: 1px solid #555;
+   border-bottom: 1px solid #444;
+   color: #EEE;
+   font-size: .9em;
+   padding: .5em 0;
+   font-weight: normal;
+   text-shadow: 1px 1px 0 rgba(0,0,0,.8);
+}
+table.listing tbody tr td {
+   color: #444;
+   padding: .5em .3em;
+   font-size: .9em;
+}
+table.listing tbody tr:nth-child(odd) td {
+   background: #F2F2F2;
+}
+table.listing tbody tr:hover td {
+   background: #DDE4FF;
+   text-shadow: 1px 1px 0 rgba(255,255,255,.8);
+}
+.center {
+   text-align: center;
+}
+.right {
+   text-align: right;
 }
 /* ==|== media queries ====================================================== */

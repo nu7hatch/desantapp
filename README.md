@@ -80,7 +80,7 @@ here as well.
     $ foreman start
 
 If everything wen fine, you should go to `http://localhost:5000/` and see
-a demo landing page! Use `http://localhost:5000/admin` to access admin
+a demo landing page! Use `http://localhost:5000/admin/` to access admin
 area.
 
 ## Copyright
