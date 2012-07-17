@@ -19,11 +19,11 @@ class AdminCredentialsValidator < ActiveModel::EachValidator
 
   # Internal: Returns true when specified login is correct.
   def valid_login?(login)
-    login == ENV['ADMIN_LOGIN']
+    login.to_s == ENV['ADMIN_LOGIN']
   end
   
   # Internal: Returns true when specified password is correct.
   def valid_password?(password)
-    BCrypt::Password.new(ENV['ADMIN_PASSWORD_HASH']).is_password?(password)
+    BCrypt::Password.new(ENV['ADMIN_PASSWORD_HASH']).is_password?(password.to_s)
   end
 end

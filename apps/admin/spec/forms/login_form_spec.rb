@@ -13,8 +13,9 @@ describe Airstrip::Admin::LoginForm do
   context "when given credentials are valid" do
     it "logs in correctly and executes passed block" do
       on_success = nil
-      res = subject.new("jack", "secret").call { |login| on_success = login }
-      res.should == { :login => "jack" }
+      res = subject.new("jack", "secret").call { |login, _| on_success = login }
+      res.keys.should =~ [:login, :access_token]
+      res[:login].should == "jack"
       on_success.should == "jack"
     end
   end
@@ -24,7 +25,7 @@ describe Airstrip::Admin::LoginForm do
       on_success, on_error = false, false
       form = subject.new("joe", "hello")
       form.on_error { on_error = true }
-      res = form.call { |login| on_success = login }
+      res = form.call { |login, _| on_success = login }
       res[:error].should == "Credentials are invalid"
       on_success.should_not be
     end

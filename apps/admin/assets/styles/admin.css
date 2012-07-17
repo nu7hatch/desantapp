@@ -1,0 +1,164 @@
+/*
+ *= require h5b
+ */
+
+/* ==|== primary styles ===================================================== */
+
+html {
+   height: auto;
+}
+body {
+   background: url('/admin/img/light_wool.png') top left repeat;
+}
+a, a:visited {
+   color: #329;
+   text-decoration: none;
+}
+a:hover, a:active {
+   color: #223;
+   text-decoration: underline;
+}
+.vessel {
+   width: 800px;
+   margin: 0 auto;
+}
+.login_form_vessel {
+   width: 420px;
+   margin: 60px auto 0 auto;
+}
+.login_form_wrapper {
+   background: #3322BB;
+   padding: 2em 2em;
+   box-shadow: inset 0 0 2px rgba(0,0,0,.7);
+}
+.login_form_wrapper h2 {
+   font-family: 'Bevan', serif;
+   font-size: 1.8em;
+   font-weight: normal;
+   color: #FFF;
+   margin: 0 0 1em 0;
+   text-align: center;
+   text-shadow: 2px 2px 1px rgba(0,0,0,.6);
+}
+form.login .formrow .padded {
+   padding: 0 8px;
+}
+form.login .formrow input {
+   width: 100%;
+   border: 0;
+   background: #DDF;
+   font-size: 1em;
+   padding: 10px 8px;
+   margin: 0 -8px;
+   border: 1px solid #DDF;
+}
+form.login .formrow input:focus {
+   background: #FFF;
+   box-shadow: inset 1px 1px 3px rgba(0,0,0,.7);
+}
+form.login .formrow label {
+   padding: 5px 0;
+   display: block;
+   margin-top: 10px;
+   color: #DDF;
+   font-size: .9em;
+   text-shadow: 1px 1px 0 rgba(0,0,0,.3)
+}
+form.login .buttons {
+   margin-top: 1.2em;
+   text-align: right;
+}
+form.login .buttons .submit {
+   position: relative;
+   z-index: 102;
+   text-align: center;
+   background: #f3a41c;
+   border: none;
+   border: 1px solid #f3aa1c;
+   border-bottom: 1px solid rgb(109,70,1);
+   border-right: 1px solid rgb(109,70,1);
+   box-shadow: 0 0 5px rgba(0,0,0,.5), inset -3px -3px 10px rgba(70,50,0,.3);
+   color: #6d4601;
+   text-shadow: 1px 1px 0 rgba(255,235,100,.8);
+   font-family: 'Bevan', serif;
+   font-size: 1.3em;
+   font-weight: normal;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   -ms-border-radius: 3px;
+   -o-border-radius: 3px;
+   border-radius: 3px;
+   padding: 1px 25px;
+   height: 46px;
+   margin-right: -2px;
+}
+form.login .buttons .submit:hover {
+   background: #e3941c;
+   box-shadow: 0 0 5px rgba(0,0,0,.3), inset 3px 3px 10px rgba(255,235,100,.2);
+}
+form.login .buttons .submit:active {
+   border: 1px solid #f3aa1c;
+   border-top: 1px solid rgb(109,70,1);
+   border-left: 1px solid rgb(109,70,1);
+   padding: 2px 24px 0 26px;
+}
+[role='contentinfo'] {
+   text-align: center;
+   margin-top: 2em;
+}
+[role='contentinfo'] p {
+   font-size: .8em;
+   color: #778;
+}
+#flash {
+}
+.flash {
+   margin: 1em 0;
+   padding: 0;
+   text-align: center;
+   box-shadow: inset -1px -1px 1px rgba(255,255,255,.4);
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   -ms-border-radius: 3px;
+   -o-border-radius: 3px;
+   border-radius: 3px;
+   border: 1px solid rgba(0,0,0,.3);
+}
+.flash p {
+   margin: 0;
+   padding: .6em 0 .6em 0;
+   font-size: .8em;
+   text-shadow: 1px 1px 0 rgba(0,0,0,.5);
+}
+.flash .hide {
+   position: absolute;
+   right: 12px;
+   top: 7px;
+   color: rgb(0, 0, 0);
+   font-size: 16px;
+   font-weight: bold;
+   text-shadow: 0px 1px 0px rgba(255,255,255,.5);
+   opacity: 0.4;
+   font-weight: bold;
+   font-family: Helvetica,Arial,sans-serif;
+   text-decoration: none;
+}
+.flash .hide:hover {
+   text-decoration: none;
+}
+.flash.error {
+   background: #882200;
+   position: relative;
+   z-index: 100;
+   color: #FFEECC;
+   font-size: 1.2em;
+}
+.flash.success {
+   background: #226611;
+   position: relative;
+   z-index: 100;
+   color: #EEFFBB;
+   font-size: 1.2em;
+}
+
+/* ==|== media queries ====================================================== */

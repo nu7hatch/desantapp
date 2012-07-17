@@ -160,7 +160,6 @@ form.signup .buttons .submit:active {
 .flash .hide:hover {
    text-decoration: none;
 }
-
 .flash.error {
    background: #882200;
    position: relative;

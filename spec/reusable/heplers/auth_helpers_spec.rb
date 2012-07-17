@@ -39,9 +39,11 @@ describe Reusable::AuthHelpers do
 
   describe "#authenticate!" do
     it "authenticates specified user" do
-      app.authenticate!("joe")
+      app.authenticate!("joe", "token")
       app.should be_logged_in
       app.current_user.should == "joe"
+      app.current_session_token.should == "token"
+      app.auth_data.should == { :login => "joe", :access_token => "token" }
     end
   end
 

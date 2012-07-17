@@ -1,3 +1,5 @@
+require 'digest/sha1'
+
 module Airstrip
   module Admin
     # Public: Admin login form service. Authenticates administrator
@@ -6,8 +8,7 @@ module Airstrip
       include ActiveModel::Validations
       include Reusable::Callbacks
 
-      validates :login,    :presence => true
-      validates :password, :presence => true, :admin_credentials => true
+      validates :password, :admin_credentials => true
 
       define_callback :on_error
 
@@ -17,12 +18,18 @@ module Airstrip
       # Returns admin information or errors when something went wrong.
       def call(&block)
         if valid?
-          yield login
-          { :login => login }
+          token = generate_access_token
+          yield login, token
+          { :login => login, :access_token => token }
         else
           run_callback :on_error
           { :error => errors.full_messages.to_sentence }
         end
+      end
+
+      # Internal: Generates new access token.
+      def generate_access_token
+        Digest::SHA1.hexdigest(Time.now.to_s + rand(100000).to_s)
       end
     end
   end

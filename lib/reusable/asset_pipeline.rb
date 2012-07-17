@@ -8,20 +8,30 @@ module Reusable
     DEFAULT_ASSET_PATHS = %w(app libs styles)
 
     # Public: Constructor. Initializes sprockets environment.
-    def initialize(app, prefix)
+    def initialize(app, prefix, &block)
       @app = app
       @prefix = prefix
       @sprockets = Sprockets::Environment.new
       
       append_default_paths!
+      instance_eval(&block) if block_given?
     end
 
     # Public: Registers given load paths in sprockets' env.
     #
-    # dir - The Array of dirs to register
+    # dir - A Array of dirs to register
     #
     def append_paths(dirs = [])
-      dirs.each { |dir| @sprockets.append_path(dir) }
+      dirs.each { |dir| append_path(dir) }
+    end
+
+    # Public: Shorthand for sprockets append path. Appends single
+    # directory to sprockets chain.
+    #
+    # dir - A String directory to be reigstered
+    #
+    def append_path(dir)
+      @sprockets.append_path(dir)
     end
 
     # Public: Serves assets

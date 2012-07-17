@@ -18,7 +18,9 @@ module Airstrip
 
       # Use asset pipeline.
       use Reusable::AssetPipeline, '/assets' do
-        append_path File.expand_path('../../core/assets')
+        append_paths(%w(app libs styles).map { |sub|
+          File.expand_path("../../core/assets/#{sub}", __FILE__)
+        })
       end
 
       # Extra helpers.
@@ -27,23 +29,36 @@ module Airstrip
       # Actions...
 
       get "/" do
-        if logged_in?
-          erb :dashboard
-        else
+        unless logged_in?
           status 401
-          erb :login
+          redirect to('/login')
         end
+        
+        erb :default
       end
 
-      post "/session", :provides => 'json' do
+      get "/login" do
+        redirect to('/admin') if logged_in?
+        erb :default
+      end
+
+      post "/session", :provides => 'json', :json_data_params => true do
         content_type "application/json"
 
-        # Passing if already logged in.
-        status 204 and return if logged_in?
+        return redirect(to('/session')) if logged_in?
 
-        login_f = AdminLoginForm.new(*params.values_at(:login, :password))
+        login_f = LoginForm.new(*params.values_at(:login, :password))
         login_f.on_error { status 400 }
-        login_f.call { |login| authenticate!(login) and redirect to("/") }.to_json
+        login_f.call { |login, token| authenticate!(login, token) }.to_json
+      end
+
+      get "/session", :provides => 'json' do
+        if logged_in?
+          auth_data.to_json
+        else
+          status 401
+          { :error => "Unauthorized" }.to_json
+        end
       end
 
       get "/logout" do
