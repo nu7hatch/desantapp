@@ -14,7 +14,7 @@ Airstrip.Admin.ChromeView = Backbone.View.extend({
     render: function() {
         this.$el.html(this.template())
         this.$el.addClass('logged')
-        this.menuView = (new Airstrip.Admin.MenuView()).render()
+        this.navbarView = (new Airstrip.Admin.NavbarView()).render()
         return this
     },
 

@@ -1,0 +1,15 @@
+<h2><%= title %></h2>
+<div id="counter"></div>
+
+<div class="listing_wrapper">
+  <table class="listing" id="<%= id %>">
+    <thead>
+      <% _.each(columns, function(column) { %>
+      <th><%= column %></th>
+      <% }) %>
+    </thead>
+    <tbody>
+      <!-- items goes here -->
+    </tbody>
+  </table>
+</div>

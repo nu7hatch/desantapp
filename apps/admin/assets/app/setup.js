@@ -11,6 +11,7 @@
 //= require mixins/enableform
 //= require helpers/commonhelpers
 //
+//= require_tree ./helpers
 //= require_tree ./templates
 //= require_tree ./views
 //= require_tree ./models

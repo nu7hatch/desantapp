@@ -43,10 +43,8 @@ Airstrip.Admin.LoginFormView = Backbone.View.extend({
 
     render: function() {
         this.$el.html(this.template())
-
-        this.submitButton = new Airstrip.Admin.LoginSubmitButtonView({
-            form: this
-        })
+        this.spinner = new Airstrip.Admin.AjaxLoaderView()
+        this.submitButton = new Airstrip.Admin.LoginSubmitButtonView({ form: this })
         this.submitButton.render()
 
         return this

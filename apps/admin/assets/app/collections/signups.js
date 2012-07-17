@@ -9,9 +9,12 @@ Airstrip.Admin.Signup = Backbone.Model.extend({
 })
 
 Airstrip.Admin.Signups = Backbone.Collection.extend({
-    url: '/admin/api/signups',
+    url: function() {
+        return '/admin/api/signups?page=' + this.page
+    },
     model: Airstrip.Admin.Signup,
-
+    page: 1,
+    
     parse: function(resp, xhr) {
         this.total_count = resp.total_count
         return resp.signups

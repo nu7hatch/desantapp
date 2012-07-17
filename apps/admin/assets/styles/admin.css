@@ -10,6 +10,10 @@ html {
 body {
    background: url('/admin/img/light_wool.png') top left repeat;
 }
+#ajax_loader {
+   opacity: .3;
+   display: block;
+}
 #yield.logged {
    margin-top: 62px;
 }
@@ -105,6 +109,10 @@ form.login .buttons .submit:active {
    border-left: 1px solid rgb(109,70,1);
    padding: 2px 24px 0 26px;
 }
+form.login .buttons #ajax_loader {
+   float: left;
+   margin-top: 16px;
+}
 [role='contentinfo'] {
    text-align: center;
    margin-top: 2em;
@@ -168,10 +176,13 @@ form.login .buttons .submit:active {
    margin-left: -25px;
    margin-right: -25px;
 }
+.logo {
+   float: left;
+}
 .logo h1 {
+   display: inline-block;
    margin: 0;
    padding: .2em 0;
-   float: left;
    display: inline-block;
    color: #FFF;
    font-family: Bevan, serif;
@@ -179,7 +190,12 @@ form.login .buttons .submit:active {
    color: rgba(0,0,0,.55);
    text-shadow: 0 1px 0 rgba(255,255,255,.25);
 }
-#menu {
+#navbar #ajax_loader {
+   margin-left: 10px;
+   margin-top: 9px;
+   float: right;
+}
+#navbar {
    background: #3322BB url("/admin/img/bright_squares.png") top left repeat;
    border-bottom: 1px solid rgba(0,0,0,.4);
    box-shadow: 0 1px 1px rgba(0,0,0,.5), inset 0px -1px 1px rgba(255,255,255,.5);
@@ -188,15 +204,15 @@ form.login .buttons .submit:active {
    width: 100%;
    z-index: 101;
 }
-#menu nav {
+#navbar nav {
    float: right;
    display: block;
    margin-right: -26px;
 }
-#menu nav li {
+#navbar nav li {
    display: inline-block;
 }
-#menu nav a {
+#navbar nav a {
    font-size: .8em;
    display: block;
    padding: 1em .7em .9em .7em;
@@ -206,14 +222,14 @@ form.login .buttons .submit:active {
    margin: 0 1px 0 1px;
    font-weight: bold;
 }
-#menu nav a:hover {
+#navbar nav a:hover {
    text-decoration: none;
    position: relative;
    z-index: 101;
    background: rgba(30,10,50,.1);
    color: #FFF;
 }
-#menu nav a:active {
+#navbar nav a:active {
    text-decoration: none;
    color: rgba(0,0,0,.8);
    text-shadow: 0 1px 0 rgba(255,255,255,.2);
