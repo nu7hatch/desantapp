@@ -444,13 +444,20 @@ table.listing tbody tr:hover td {
    width: 100%;
    height: 500px;
 }
-#map .frame {
-   fill: none;
-   pointer-events: all;
-}
 #map .feature {
-   fill: #eee;
+   fill: rgba(10,80,120,.15);
    stroke: #FFF;
+   opacity: .85;
+}
+#map .feature.hover {
+   opacity: 1;
+   cursor: pointer;
+}
+#map .dot {
+}
+#map .dot.hover {
+   cursor: pointer;
+   opacity: 1;
 }
 
 /* ==|== media queries ====================================================== */

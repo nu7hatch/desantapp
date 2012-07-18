@@ -11,7 +11,7 @@ module Populate
   def populate_signups!
     puts "== Populating: Signup"
 
-    30.times do
+    50.times do
       Airstrip::Signup.make(:email => Faker::Internet.email).tap do |signup|
         signup.full_geocode
         signup.save!

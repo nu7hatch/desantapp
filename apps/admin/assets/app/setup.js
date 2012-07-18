@@ -8,9 +8,9 @@
 //= require ./admin
 //
 //= require templates/flash
-//= require views/flashview
-//= require mixins/enableform
-//= require helpers/commonhelpers
+//= require views/flash_view
+//= require mixins/enable_form
+//= require helpers/common_helpers
 //
 //= require_tree ./helpers
 //= require_tree ./mixins

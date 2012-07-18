@@ -1,5 +1,6 @@
 Airstrip.Admin.Router = Backbone.Router.extend({
     routes: {
+        'admin': 'home',
         'admin/': 'home',
         'admin/login': 'login',
         'admin/signups': 'signupsList',

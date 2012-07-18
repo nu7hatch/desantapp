@@ -35,11 +35,6 @@ Airstrip.Admin.LocationsMapView = Backbone.View.extend({
             .append("g")
             .selectAll(".feature")
 
-        this.svg.append("rect")
-            .attr("class", "frame")
-            .attr("width", this.width)
-            .attr("height", this.height)
-
         return this
     },
     
@@ -82,8 +77,13 @@ Airstrip.Admin.LocationsMapView = Backbone.View.extend({
                 .attr("class", "feature")
                 .attr("d", self.path)
                 .style("fill", function(d) {
-                    val = data[d.properties.name]
-                    return self.scaleColor(val, total)
+                    return self.scaleColor(data[d.properties.name], total, 2, 1.1, 1.5)
+                })
+                .on("mouseover", function() {
+                    d3.select(this).attr("class", "feature hover")
+                })
+                .on("mouseout", function() {
+                    d3.select(this).attr("class", "feature")
                 })
         })
     },
@@ -113,15 +113,32 @@ Airstrip.Admin.LocationsMapView = Backbone.View.extend({
                 .attr('class', 'dot')
                 .attr('cx', function(d) { return d.coords[0]; })
                 .attr('cy', function(d) { return d.coords[1]; })
-                .attr('r', function(d) { return d.users_count / total * 80 })
-                .attr('fill', function(d) { return self.scaleColor(d.users_count, total) })
+                .attr('r', function(d) {
+                    return d.users_count / total * 80
+                })
+                .attr('fill', function(d) {
+                    return self.scaleColor(d.users_count, total, 1.1, 2, 4)
+                })
+                .attr('opacity', function(d) {
+                    return (5 + ((d.users_count / total) * 5)) / 10
+                })
+                .on("mouseover", function() {
+                    d3.select(this)
+                        .attr("class", "dot hover")
+                        .attr("r", function(d) { return d.users_count / total * 120 })
+                })
+                .on("mouseout", function() {
+                    d3.select(this)
+                        .attr("class", "dot")
+                        .attr("r", function(d) { return d.users_count / total * 80 })
+                })
         })
     },
 
-    scaleColor: function(val, total) {
+    scaleColor: function(val, total, r, g, b) {
         if (val) {
             scale = 255 - 255 * (val / total)
-            return d3.rgb(scale / 1.4, scale / 1.2, scale / 1.8)
+            return d3.rgb(scale / r, scale / g, scale / b)
         }
     },
 })
