@@ -13,7 +13,7 @@ module Populate
 
     50.times do
       Airstrip::Signup.make(:email => Faker::Internet.email).tap do |signup|
-        signup.full_geocode
+        signup.full_geocode unless RACK_ENV == 'production'
         signup.save!
         puts "  -> #<Airstrip::Signup email=#{signup.email.inspect} lat=#{signup.lat.inspect} lon=#{signup.lon.inspect} ip_address=#{signup.ip_address.inspect}>"
       end
