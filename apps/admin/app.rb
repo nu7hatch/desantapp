@@ -3,6 +3,8 @@ require 'reusable/helpers/auth_helpers'
 
 require 'admin/presenters/latest_signups_presenter'
 require 'admin/presenters/referers_presenter'
+require 'admin/presenters/cities_presenter'
+require 'admin/presenters/countries_presenter'
 require 'admin/forms/login_form'
 
 module Airstrip
@@ -30,7 +32,7 @@ module Airstrip
 
       # Actions...
 
-      %w{/ /signups /referers /locations}.each do |path|
+      %w{/ /signups /referers /locations/cities /locations/countries}.each do |path|
         get path do
           unless logged_in?
             status 401
@@ -92,8 +94,14 @@ module Airstrip
         signups_p.call.to_json
       end
 
-      get "/api/locations", :provides => 'json' do
-        
+      get "/api/cities", :provides => 'json' do
+        cities_p = CitiesPresenter.new(params[:page])
+        cities_p.call.to_json
+      end
+
+      get "/api/countries", :provides => 'json' do
+        countries_p = CountriesPresenter.new(params[:page])
+        countries_p.call.to_json
       end
 
       get "/api/referers", :provides => 'json' do

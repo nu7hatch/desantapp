@@ -5,6 +5,7 @@ require 'active_record'
 require 'active_model'
 require 'active_support/all'
 require 'active_model/validations'
+require 'geocoder'
 
 require 'core_ext/hash'
 require 'core_ext/array_to_csv'

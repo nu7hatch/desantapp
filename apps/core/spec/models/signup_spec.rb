@@ -23,4 +23,31 @@ describe Airstrip::Signup do
       referers.first.users_count.should == 2
     end
   end
+
+  context "locations" do
+    before do
+      Airstrip::Signup.destroy_all
+      2.times { Airstrip::Signup.make!(:city => "Montevideo", :country => "Uruguay") }
+      Airstrip::Signup.make!(:city => nil, :country => nil)
+    end
+    
+    describe ".cities" do
+      it "returns list of cities with number of users from there" do
+        cities = Airstrip::Signup.cities
+        cities.to_a.should have(1).item
+        cities.first.city.should == "Montevideo"
+        cities.first.country.should == "Uruguay"
+        cities.first.users_count.should == 2
+      end
+    end
+
+    describe ".countries" do
+      it "returns list of countries with number of users from there" do
+        countries = Airstrip::Signup.countries
+        countries.to_a.should have(1).item
+        countries.first.country.should == "Uruguay"
+        countries.first.users_count.should == 2
+      end
+    end
+  end
 end

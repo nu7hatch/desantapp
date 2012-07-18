@@ -12,6 +12,7 @@
 //= require helpers/commonhelpers
 //
 //= require_tree ./helpers
+//= require_tree ./mixins
 //= require_tree ./templates
 //= require_tree ./views
 //= require_tree ./models

@@ -308,7 +308,63 @@ table.listing tbody tr:hover td {
 .right {
    text-align: right;
 }
-
+#content .subnav {
+   height: 68px;
+   margin-top: -68px;
+   text-align: right;
+   margin-right: -8px;
+   width: 100%;
+   text-align: right;
+}
+#content .subnav ul {
+   background: rgba(0,0,0,.1);
+   display: inline-block;
+   padding: 5px 5px 4px 3px;
+   border-radius: 3px;
+   display: inline-block;
+   margin: 0;
+}
+#content .subnav li {
+   display: inline-block;
+   position: relative;
+   float: right;
+   margin-left: 2px
+}
+#content .subnav li a {
+   display: block;
+   position: relative;
+   z-index: 102;
+   text-align: center;
+   background: #BBB;
+   border: none;
+   border: 1px solid #EEE;
+   border-bottom: 1px solid #777;
+   border-right: 1px solid #777;
+   box-shadow: inset -3px -3px 10px rgba(40,40,40,.2);
+   color: #555;
+   text-shadow: 1px 1px 0 rgba(255,255,255,.7);
+   font-size: .9em;
+   font-weight: normal;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   -ms-border-radius: 3px;
+   -o-border-radius: 3px;
+   border-radius: 3px;
+   padding: 5px 25px 5px 10px;
+   position: relative;
+   font-family: Bevan;
+}
+#content .subnav li a:hover {
+   text-decoration: none;
+   background: #AAA;
+}
+#content .subnav li a.current, #content .subnav li a:active {
+   border: 1px solid #EEE;
+   border-top: 1px solid #777;
+   border-left: 1px solid #777;
+   padding: 6px 24px 5px 11px;
+   box-shadow: inset 3px 3px 10px rgba(40,40,40,.2);
+}
 #content .action_buttons {
    height: 80px;
    margin-top: -80px;

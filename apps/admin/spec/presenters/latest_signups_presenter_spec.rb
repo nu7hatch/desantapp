@@ -13,7 +13,7 @@ describe Airstrip::Admin::LatestSignupsPresenter do
   it "loads paginated list of latest signups" do
     res = subject.new(1).call
     res[:signups].should have(2).items
-    res[:signups].first.keys.should =~ %w(id email ip_address referer created_at)
+    res[:signups].first.keys.should =~ %w(id email ip_address referer created_at city country)
     res[:total_count].should == 2
   end
 end

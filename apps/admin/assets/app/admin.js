@@ -1,2 +1,3 @@
 window.Airstrip.Admin = {
+    Mixins: {}
 }

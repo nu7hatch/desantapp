@@ -3,48 +3,22 @@ Airstrip.Admin.ReferersListItemsView = Backbone.View.extend({
     template: JST['templates/admin/referer_items'],
 
     initialize: function() {
-        this.referers = new Airstrip.Admin.Referers()
-        this.counter = new Airstrip.Admin.ListingCounterView()
-        this.isLoading = false
+        this.models = new Airstrip.Admin.Referers()
+        this.initListing()
     },
-    
-    load: function() {
-        var self = this
-        this.isLoading = true;
-        
-        this.referers.fetch({
-            success: function(collection, resp) {
-                self.$el.append(self.template({ referers: collection }))
-                self.counter.update(collection.length, collection.total_count)
-            },
-            error: function(referers, resp) {
-                Airstrip.renderFlash('error', "Couldn't load content for the page!")
-            }
-        }).complete(function() {
-            self.isLoading = false
-        })
-
-        return this;
-    },
-    
-    render: function() {
-        this.load()
-        this.referers.page += 1;
-        
-        return this
-    }
 })
+
+_.extend(Airstrip.Admin.ReferersListItemsView.prototype,
+         Airstrip.Admin.Mixins.DefaultListing)
 
 Airstrip.Admin.ReferersListView = Backbone.View.extend({
     el: '#content',
     template: JST['templates/admin/listing'],
 
     initialize: function() {
-        _.bindAll(this, 'checkScroll')
-        bindScroll(this.checkScroll)        
-        this.isLoading = false
+        this.initScroll()
     },
-        
+    
     render: function() {
         this.$el.html(this.template({
             id: 'referers',
@@ -57,12 +31,7 @@ Airstrip.Admin.ReferersListView = Backbone.View.extend({
 
         return this
     },
-
-    checkScroll: function (e) {
-        var self = this
-
-        scrollReached(this.isLoading, function() {
-            self.items.render()
-        })
-    }
 })
+
+_.extend(Airstrip.Admin.ReferersListView.prototype,
+         Airstrip.Admin.Mixins.InifiniteScrollListing)

@@ -2,11 +2,8 @@ module Airstrip
   module Admin
     # Public: Fetches paginated list of referring websites.
     class ReferersPresenter < Struct.new(:page)
-      # Public: Default operation.
-      #
-      # page - An Integer page number.
-      #
-      # Returns list of referring websites with number of brought users.
+      # Public: Default operation. Returns list of referring websites 
+      # with number of brought users.
       def call
         { :referers => mapped_referers, :total_count => total_count }
       end

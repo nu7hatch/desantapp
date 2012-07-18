@@ -1,9 +1,9 @@
-scrollReached = function(isWorking, callback) {
+scrollReached = function(cond, callback) {
     $window = $(window)
     scrollTop = $window.scrollTop()
     triggerPoint = $(document).height() - $window.height() - 100;
 
-    if (!isWorking && !scrollTop == 0 && scrollTop > triggerPoint) {
+    if (cond && !scrollTop == 0 && scrollTop > triggerPoint) {
         callback()
     }
 }

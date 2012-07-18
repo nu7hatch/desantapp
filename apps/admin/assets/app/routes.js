@@ -3,7 +3,8 @@ Airstrip.Admin.Router = Backbone.Router.extend({
         'admin/': 'home',
         'admin/login': 'login',
         'admin/signups': 'signupsList',
-        'admin/locations': 'locationsList',
+        'admin/locations/cities': 'citiesList',
+        'admin/locations/countries': 'countriesList',
         'admin/referers': 'referersList',
     },
 
@@ -25,8 +26,12 @@ Airstrip.Admin.Router = Backbone.Router.extend({
         (new Airstrip.Admin.SignupsListView()).render()
     },
 
-    locationsList: function() {
-        (new Airstrip.Admin.LocationsListView()).render()
+    citiesList: function() {
+        (new Airstrip.Admin.LocationsListView({ group: 'cities' })).render()
+    },
+
+    countriesList: function() {
+        (new Airstrip.Admin.LocationsListView({ group: 'countries' })).render()
     },
 
     referersList: function() {

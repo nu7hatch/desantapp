@@ -3,37 +3,13 @@ Airstrip.Admin.SignupsListItemsView = Backbone.View.extend({
     template: JST['templates/admin/signup_items'],
 
     initialize: function() {
-        this.signups = new Airstrip.Admin.Signups()
-        this.counter = new Airstrip.Admin.ListingCounterView()
-        this.isLoading = false
+        this.models = new Airstrip.Admin.Signups()
+        this.initListing()
     },
-    
-    load: function() {
-        var self = this
-        this.isLoading = true;
-        
-        this.signups.fetch({
-            success: function(collection, resp) {
-                self.$el.append(self.template({ signups: collection }))
-                self.counter.update(collection.length, collection.total_count)
-            },
-            error: function(signups, resp) {
-                Airstrip.renderFlash('error', "Couldn't load content for the page!")
-            }
-        }).complete(function() {
-            self.isLoading = false
-        })
-
-        return this;
-    },
-    
-    render: function() {
-        this.load()
-        this.signups.page += 1;
-        
-        return this
-    }
 })
+
+_.extend(Airstrip.Admin.SignupsListItemsView.prototype,
+         Airstrip.Admin.Mixins.DefaultListing)
 
 Airstrip.Admin.SignupsDownloadCSVButtonView = Backbone.View.extend({
     template: JST['templates/admin/download_csv_button'],
@@ -58,9 +34,7 @@ Airstrip.Admin.SignupsListView = Backbone.View.extend({
     template: JST['templates/admin/listing'],
 
     initialize: function() {
-        _.bindAll(this, 'checkScroll')
-        bindScroll(this.checkScroll)        
-        this.isLoading = false
+        this.initScroll()
     },
         
     render: function() {
@@ -79,12 +53,7 @@ Airstrip.Admin.SignupsListView = Backbone.View.extend({
         
         return this
     },
-
-    checkScroll: function (e) {
-        var self = this
-
-        scrollReached(this.isLoading, function() {
-            self.items.render()
-        })
-    }
 })
+
+_.extend(Airstrip.Admin.SignupsListView.prototype,
+         Airstrip.Admin.Mixins.InifiniteScrollListing)

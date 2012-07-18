@@ -14,6 +14,7 @@ gem "kaminari", "~> 0.13.0"
 gem "padrino-helpers"
 gem "sprockets"
 gem "ejs"
+gem "geocoder"
 
 group :development do
   gem "machinist", "~> 2.0"
