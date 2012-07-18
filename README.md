@@ -4,7 +4,7 @@ _Airstrip_ is an open source, neat landing page application. It's simple to
 use, customize and extend to your needs. There's an awesome admin area
 too - it will give you all the information and statistics you need.
 
-## Introduction (Design)
+## Introduction, design explained
 
 _Airstrip_ is not a Rails app, it's an experiment with full stack, single
 page application in _Backbone.js_ managed by _Sinatra_ backend. Here's
