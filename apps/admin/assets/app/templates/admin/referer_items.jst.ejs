@@ -1,0 +1,7 @@
+<% referers.each(function(referer) { %>
+<tr>
+  <td class="center"><%= referer.get('id') %></td>
+  <td><strong><%= referer.get('url') %></strong></td>
+  <td class="center"><%= referer.get('users_count') %></td>
+</tr>
+<% }) %>

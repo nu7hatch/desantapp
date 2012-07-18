@@ -20,6 +20,14 @@ module Airstrip
       order('created_at DESC')
     end
 
+    # Public: Returns list of refering websites with number of
+    # users brought by each.
+    def self.referers
+      select('referer as url, count(id) as users_count')
+        .where('referer IS NOT NULL')
+        .group('referer')
+    end
+
     # Public: Shorthand for setting up client information.
     #
     # ip      - A String IP address.

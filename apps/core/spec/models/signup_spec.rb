@@ -8,4 +8,19 @@ describe Airstrip::Signup do
       subject.referer.should == "google.com"
     end
   end
+
+  describe ".referers" do
+    before do
+      Airstrip::Signup.destroy_all
+      2.times { Airstrip::Signup.make!(:referer => 'http://google.com') }
+      Airstrip::Signup.make!(:referer => nil)
+    end
+
+    it "returns list of referring websites together with number of users brought" do
+      referers = Airstrip::Signup.referers
+      referers.to_a.should have(1).item
+      referers.first.url.should == "http://google.com"
+      referers.first.users_count.should == 2
+    end
+  end
 end

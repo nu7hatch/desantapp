@@ -30,6 +30,6 @@ Airstrip.Admin.Router = Backbone.Router.extend({
     },
 
     referersList: function() {
-        (new Airstrip.Admin.ReferrersListView()).render()
+        (new Airstrip.Admin.ReferersListView()).render()
     },
 })

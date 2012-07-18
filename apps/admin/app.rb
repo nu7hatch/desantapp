@@ -2,6 +2,7 @@ require 'core/models/signup'
 require 'reusable/helpers/auth_helpers'
 
 require 'admin/presenters/latest_signups_presenter'
+require 'admin/presenters/referers_presenter'
 require 'admin/forms/login_form'
 
 module Airstrip
@@ -96,7 +97,8 @@ module Airstrip
       end
 
       get "/api/referers", :provides => 'json' do
-        
+        referers_p = ReferersPresenter.new(params[:page])
+        referers_p.call.to_json
       end
     end
   end
