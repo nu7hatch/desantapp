@@ -1,5 +1,5 @@
-module Airstrip
-  module HashExt
+module CoreExt
+  module Hash
     # Public: Returns new hash composed only from specified keys.
     #
     # keys - An Array of keys to be picked up.
@@ -14,5 +14,5 @@ module Airstrip
 end
 
 class Hash
-  include Airstrip::HashExt
+  include CoreExt::Hash
 end

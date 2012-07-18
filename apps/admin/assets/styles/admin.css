@@ -179,6 +179,7 @@ form.login .buttons #ajax_loader {
 }
 .logo {
    float: left;
+   position: relative;
 }
 .logo h1 {
    display: inline-block;
@@ -192,9 +193,9 @@ form.login .buttons #ajax_loader {
    text-shadow: 0 1px 0 rgba(255,255,255,.25);
 }
 #navbar #ajax_loader {
-   margin-left: 10px;
-   margin-top: 9px;
-   float: right;
+   position: absolute;
+   top: 9px;
+   left: 112px;
 }
 #navbar {
    background: #3322BB url("/admin/img/bright_squares.png") top left repeat;
@@ -244,6 +245,7 @@ form.login .buttons #ajax_loader {
    font-weight: normal;
    margin: -24px -24px 1px -24px;
    padding: 15px 24px 30px 24px;
+   border-bottom: 1px solid #888;
    color: #888;
    background: #EEE url("/admin/img/white_texture.png") repeat;
    text-shadow: 1px 1px 0 rgba(255,255,255,.9);
@@ -290,7 +292,7 @@ table.listing thead th {
 }
 table.listing tbody tr td {
    color: #444;
-   padding: .5em .3em;
+   padding: .5em .1em;
    font-size: .9em;
 }
 table.listing tbody tr:nth-child(odd) td {
@@ -306,4 +308,77 @@ table.listing tbody tr:hover td {
 .right {
    text-align: right;
 }
+
+#content .action_buttons {
+   height: 80px;
+   margin-top: -80px;
+   text-align: right;
+   margin-right: -8px;
+}
+#content .action_buttons .button_wrap {
+   background: rgba(0,0,0,.1);
+   display: inline-block;
+   padding: 4px 6px 4px 4px;
+   border-radius: 4px;
+}
+#content .action_buttons .button {
+   position: relative;
+   z-index: 102;
+   text-align: center;
+   background: #f3a41c;
+   border: none;
+   border: 1px solid #f3aa1c;
+   border-bottom: 1px solid rgb(109,70,1);
+   border-right: 1px solid rgb(109,70,1);
+   box-shadow: -1px -1px 1px rgba(255,255,255,.8), inset -3px -3px 10px rgba(70,50,0,.3);
+   color: #6d4601;
+   text-shadow: 1px 1px 0 rgba(255,235,100,.8);
+   font-family: 'Bevan', serif;
+   font-size: 1.3em;
+   font-weight: normal;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   -ms-border-radius: 3px;
+   -o-border-radius: 3px;
+   border-radius: 3px;
+   padding: 1px 25px 5px 25px;
+   height: 56px;
+   margin-right: -2px;
+   position: relative;
+   padding-left: 55px;
+}
+#content .action_buttons .button:hover {
+   background: #e3941c;
+   box-shadow: -1px -1px 1px rgba(255,255,255,.8), inset 3px 3px 10px rgba(255,235,100,.2);
+}
+#content .action_buttons .button:active {
+   border: 1px solid #f3aa1c;
+   border-top: 1px solid rgb(109,70,1);
+   border-left: 1px solid rgb(109,70,1);
+   padding: 2px 24px 4px 56px;
+   box-shadow: 1px 1px 1px rgba(255,255,255,.8), inset 3px 3px 10px rgba(255,235,100,.2);
+}
+#content .action_buttons .button small {
+   display: block;
+   font-size: .55em;
+   padding: 0 0 0 1px;
+   text-align: left;
+   margin-top: -6px;
+   font-family: Helvetica, Arial, sans-serif;
+}
+#content .action_buttons .button strong {
+   display: block;
+   font-weight: normal;
+}
+#content .action_buttons .button i {
+   font-size: 2em;
+   position: absolute;
+   left: 12px;
+   top: -6px;
+}
+#content .action_buttons .button:active i {
+   left: 13px;
+   top: -5px;
+}
+
 /* ==|== media queries ====================================================== */

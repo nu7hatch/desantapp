@@ -1,4 +1,4 @@
-Airstrip.Admin.SignupListItemsView = Backbone.View.extend({
+Airstrip.Admin.SignupsListItemsView = Backbone.View.extend({
     el: '#signups tbody',
     template: JST['templates/admin/signup_items'],
 
@@ -30,7 +30,26 @@ Airstrip.Admin.SignupListItemsView = Backbone.View.extend({
     render: function() {
         this.load()
         this.signups.page += 1;
+        
         return this
+    }
+})
+
+Airstrip.Admin.SignupsDownloadCSVButtonView = Backbone.View.extend({
+    template: JST['templates/admin/download_csv_button'],
+
+    events: {
+        'click button.download_csv': 'click',
+    },
+    
+    render: function() {
+        this.$el.html(this.template())
+        return this;
+    },
+
+    click: function(e) {
+        e.preventDefault()
+        document.location.href = '/admin/signups.csv'
     }
 })
 
@@ -52,8 +71,11 @@ Airstrip.Admin.SignupsListView = Backbone.View.extend({
             columns: ['#', 'E-mail', 'IP address', 'Registered at'],
         }))
 
-        this.items = new Airstrip.Admin.SignupListItemsView()
-        this.items.render()
+        this.downloadCSVButton = new Airstrip.Admin.SignupsDownloadCSVButtonView({
+            el: this.$('.action_buttons')
+        }).render()
+        
+        this.items = new Airstrip.Admin.SignupsListItemsView().render()
         
         return this
     },

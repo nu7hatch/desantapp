@@ -13,6 +13,7 @@ module Airstrip
 
       # Custom extensions.
       extend Reusable::EnvCondition
+      extend Reusable::SimpleAuthCondition
       extend Reusable::JSONParamsCondition
       extend Reusable::TestAction
 
@@ -66,6 +67,14 @@ module Airstrip
       get "/logout" do
         log_out!
         redirect to("/")
+      end
+
+      get "/signups.csv", :provides => 'csv', :auth => true do
+        content_type "text/csv"
+        headers "Content-Disposition" => "attachment;filename=signups.csv"
+
+        signups_p = LatestSignupsPresenter.new
+        signups_p.mapped_signups.to_csv
       end
 
       before "/api/*" do
