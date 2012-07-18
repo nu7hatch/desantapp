@@ -9,6 +9,7 @@ module Airstrip
 
       # Public: Returns list of re-mapped signup attributes.
       def mapped_signups
+        signups = page ? self.signups.page(page) : self.signups
         signups.map { |x| x.attributes.pick(*columns_to_show) }
       end
 
@@ -19,7 +20,7 @@ module Airstrip
 
       # Public: Raw list of latest signups.
       def signups
-        @signups ||= Signup.latest.page(page)
+        @signups ||= Signup.latest
       end
 
       # Internal: List of columns to be loaded and displayed.
