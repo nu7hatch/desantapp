@@ -44,10 +44,14 @@ Airstrip.Admin.LocationsListView = Backbone.View.extend({
             this.renderCountries()
         }
 
+        return this
+    },
+    
+    navigate: function(to) {
+        app.navigate(to)
+        
         this.$('.subnav').html(this.subnav_template())
         this.$('.subnav .' + this.options.group + '_tab').addClass('current')
-
-        return this
     },
     
     renderCities: function() {
@@ -58,7 +62,7 @@ Airstrip.Admin.LocationsListView = Backbone.View.extend({
             columns: ['#', 'City', 'Country', 'Total users'],
         }))
 
-        app.navigate('/admin/locations/cities')
+        this.navigate('/admin/locations/cities')
         
         this.items = new Airstrip.Admin.CitiesListItemsView().render()
         this.map = new Airstrip.Admin.LocationsMapView({ group: 'cities' }).render()
@@ -74,7 +78,7 @@ Airstrip.Admin.LocationsListView = Backbone.View.extend({
             columns: ['#', 'Country', 'Total users'],
         }))
 
-        app.navigate('/admin/locations/countries')
+        this.navigate('/admin/locations/countries')
 
         this.items = new Airstrip.Admin.CountriesListItemsView().render()
         this.map = new Airstrip.Admin.LocationsMapView({ group: 'countries' }).render()
