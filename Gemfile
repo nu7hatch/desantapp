@@ -16,13 +16,12 @@ gem "sprockets"
 gem "ejs"
 gem "geocoder"
 
-group :development do
-  gem "machinist", "~> 2.0"
-  gem "ffaker"
-  gem "rspec", "~> 2.4"
-  gem "mocha", "0.11.4"
-  gem 'fuubar'
-end
+# Development, however must be installed to perform rake tasks.
+gem "machinist", "~> 2.0"
+gem "ffaker"
+gem "rspec", "~> 2.4"
+gem "mocha", "0.11.4"
+gem 'fuubar'
 
 group :mysql do
   gem 'mysql2'
