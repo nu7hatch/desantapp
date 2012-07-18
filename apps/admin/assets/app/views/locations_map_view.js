@@ -107,15 +107,17 @@ Airstrip.Admin.LocationsMapView = Backbone.View.extend({
                 entry.coords = self.projection([ entry.lon, entry.lat ])
                 return entry
             })
+
+            circleRadius = function(d) {
+                return 3 + ((d.users_count / total) * 17)
+            }
             
             self.dots.data(markers)
                 .enter().append('circle')
                 .attr('class', 'dot')
                 .attr('cx', function(d) { return d.coords[0]; })
                 .attr('cy', function(d) { return d.coords[1]; })
-                .attr('r', function(d) {
-                    return d.users_count / total * 80
-                })
+                .attr('r', circleRadius)
                 .attr('fill', function(d) {
                     return self.scaleColor(d.users_count, total, 1.1, 2, 4)
                 })
@@ -125,12 +127,12 @@ Airstrip.Admin.LocationsMapView = Backbone.View.extend({
                 .on("mouseover", function() {
                     d3.select(this)
                         .attr("class", "dot hover")
-                        .attr("r", function(d) { return d.users_count / total * 120 })
+                        .attr('r', function(d) { return circleRadius(d) * 1.5 })
                 })
                 .on("mouseout", function() {
                     d3.select(this)
                         .attr("class", "dot")
-                        .attr("r", function(d) { return d.users_count / total * 80 })
+                        .attr("r", circleRadius)
                 })
         })
     },
