@@ -54,13 +54,15 @@ Airstrip.Admin.LocationsListView = Backbone.View.extend({
         this.$el.html(this.template({
             id: 'cities',
             icon: 'map-marker',
-            title: "Users' locations",
+            title: "User locations",
             columns: ['#', 'City', 'Country', 'Total users'],
         }))
 
         app.navigate('/admin/locations/cities')
-        this.items = new Airstrip.Admin.CitiesListItemsView().render()
         
+        this.items = new Airstrip.Admin.CitiesListItemsView().render()
+        this.map = new Airstrip.Admin.LocationsMapView({ group: 'cities' }).render()
+
         return this
     },
 
@@ -68,13 +70,15 @@ Airstrip.Admin.LocationsListView = Backbone.View.extend({
         this.$el.html(this.template({
             id: 'countries',
             icon: 'map-marker',
-            title: "Users' locations",
+            title: "User locations",
             columns: ['#', 'Country', 'Total users'],
         }))
 
         app.navigate('/admin/locations/countries')
+
         this.items = new Airstrip.Admin.CountriesListItemsView().render()
-        
+        this.map = new Airstrip.Admin.LocationsMapView({ group: 'countries' }).render()
+
         return this
     },
 

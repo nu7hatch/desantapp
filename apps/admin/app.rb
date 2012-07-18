@@ -99,9 +99,19 @@ module Airstrip
         cities_p.call.to_json
       end
 
+      get "/api/cities/map", :provides => 'json' do
+        cities_p = CitiesPresenter.new
+        cities_p.mercator_data.to_json
+      end
+
       get "/api/countries", :provides => 'json' do
         countries_p = CountriesPresenter.new(params[:page])
         countries_p.call.to_json
+      end
+
+      get "/api/countries/map", :provides => 'json' do
+        countries_p = CountriesPresenter.new
+        countries_p.mercator_data.to_json
       end
 
       get "/api/referers", :provides => 'json' do

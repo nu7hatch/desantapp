@@ -48,6 +48,27 @@ module Airstrip
         .group('city')
     end
 
+    # Public: Selects list of nearby cities with sumarized number of users.
+    #
+    # ... and fuck yeah, looks terrible :D
+    def self.nearby_cities
+      find_by_sql(<<-SQL.strip_heredoc)
+        SELECT DISTINCT b.city, b.lat, b.lon, count(b.id) as users_count, 
+          3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((b.lat - a.lat) * PI() / 180 / 2), 2) + 
+            COS(b.lat * PI() / 180) * COS(a.lat * PI() / 180) * POWER(SIN((b.lon - a.lon) *
+            PI() / 180 / 2), 2) )) AS distance, 
+          CAST(DEGREES(ATAN2( RADIANS(a.lon - b.lon), RADIANS(a.lat - b.lat))) + 360 AS decimal) % 
+            360 AS bearing 
+        FROM signups a, signups b  
+        WHERE (3958.755864232 * 2 * ASIN(SQRT(POWER(SIN((b.lat - a.lat) * PI() / 180 / 2), 2) + 
+            COS(b.lat * PI() / 180) * COS(a.lat * PI() / 180) * POWER(SIN((b.lon - a.lon) * PI() / 
+            180 / 2), 2) )) <= 20 
+          AND a.lat <> 0 AND a.lon <> 0 AND b.lat <> 0 AND b.lon <> 0 AND b.city IS NOT NULL) 
+        GROUP BY b.city 
+        ORDER BY distance
+      SQL
+    end
+
     # Public: Returns list of countries with number of users from there
     def self.countries
       select('country, count(id) as users_count')

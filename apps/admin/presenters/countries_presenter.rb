@@ -8,6 +8,17 @@ module Airstrip
         { :countries => mapped_countries, :total_count => total_count }
       end
 
+      # Public: Returns countries related data formatted for d3's
+      # mercator graph.
+      def mercator_data
+        data = countries.all.inject({}) do |res, x| 
+          res[x.country] = x.users_count
+          res
+        end
+        
+        { :total_count => total_count, :data => data }
+      end
+
       # Public: Returns list of re-mapped signup attributes.
       def mapped_countries
         sn = 0

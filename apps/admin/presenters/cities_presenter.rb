@@ -8,6 +8,17 @@ module Airstrip
         { :cities => mapped_cities, :total_count => total_count }
       end
 
+      # Public: Returns cities related data formatted for d3's
+      # mercator graph.
+      def mercator_data
+        data = nearby_cities.inject({}) do |res, x|
+          res[x.city] = x.attributes.pick('lat', 'lon', 'users_count')
+          res
+        end
+
+        { :total_count => total_count, :data => data }
+      end
+
       # Public: Returns list of re-mapped signup attributes.
       def mapped_cities
         sn = 0
@@ -17,6 +28,12 @@ module Airstrip
           id = current * Kaminari.config.default_per_page + (sn += 1)
           x.attributes.pick(*columns_to_show).merge('id' => id)
         end
+      end
+
+      # Public: Returns list of grouped nearby cities with number
+      # of users from there.
+      def nearby_cities
+        @nearby_cities ||= Signup.nearby_cities
       end
 
       # Public: Returns total count of the cities.
