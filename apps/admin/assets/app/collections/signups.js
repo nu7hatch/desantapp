@@ -3,7 +3,7 @@ Airstrip.Admin.Signup = Backbone.Model.extend({
         id: null,
         email: null,
         ip_address: null,
-        referrer: null,
+        referer: null,
         created_at: null
     }
 })

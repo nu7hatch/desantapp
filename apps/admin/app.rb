@@ -29,7 +29,7 @@ module Airstrip
 
       # Actions...
 
-      %w{/ /signups /referrers /locations}.each do |path|
+      %w{/ /signups /referers /locations}.each do |path|
         get path do
           unless logged_in?
             status 401
@@ -95,7 +95,7 @@ module Airstrip
         
       end
 
-      get "/api/referrers", :provides => 'json' do
+      get "/api/referers", :provides => 'json' do
         
       end
     end

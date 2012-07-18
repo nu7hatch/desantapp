@@ -18,7 +18,7 @@ module Airstrip
     def call
       signup_attrs = (app.params[:signup] || {}).pick(*allowed_attributes)
       signup = Signup.new(signup_attrs)
-      signup.set_client_info(app.request.ip, app.session[:referrer])
+      signup.set_client_info(app.request.ip, app.session[:referer])
       
       if signup.save
         signup.attributes.pick('email')

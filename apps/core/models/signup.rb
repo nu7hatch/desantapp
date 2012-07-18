@@ -9,7 +9,7 @@ module Airstrip
   #   id          :integer(11),  not null,  primary key
   #   email       :string(255),  not null
   #   ip_address  :string(255),  not null
-  #   referrer    :string(255)
+  #   referer     :string(255)
   #   created_at  :timestamp,    not null
   #   
   class Signup < ActiveRecord::Base
@@ -22,11 +22,11 @@ module Airstrip
 
     # Public: Shorthand for setting up client information.
     #
-    # ip       - A String IP address.
-    # referrer - A String HTTP referrer address.
+    # ip      - A String IP address.
+    # referer - A String HTTP referer address.
     #
-    def set_client_info(ip, referrer)
-      self.ip_address, self.referrer = ip, referrer
+    def set_client_info(ip, referer)
+      self.ip_address, self.referer = ip, referer
     end
   end
 end

@@ -3,7 +3,7 @@ class CreateSignups < ActiveRecord::Migration
     create_table :signups do |t|
       t.string :email,      :null => false
       t.string :ip_address, :null => false
-      t.string :referrer
+      t.string :referer
 
       t.timestamps
     end

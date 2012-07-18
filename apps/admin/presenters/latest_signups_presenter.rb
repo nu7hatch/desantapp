@@ -28,7 +28,7 @@ module Airstrip
 
       # Internal: List of columns to be loaded and displayed.
       def columns_to_show
-        %w(id email ip_address referrer created_at)
+        %w(id email ip_address referer created_at)
       end
     end
   end

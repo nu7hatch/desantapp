@@ -10,7 +10,7 @@ describe Airstrip::SignupService do
       stub(
         :params  => { :signup => { 'email' => "chris@nu7hat.ch" } },
         :request => stub(:ip => "127.0.0.1"),
-        :session => { :referrer => "http://www.dummy.com/blog/post" }
+        :session => { :referer => "http://www.dummy.com/blog/post" }
       )
     end
 
