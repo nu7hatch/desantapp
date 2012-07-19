@@ -1,8 +1,12 @@
-<% models.each(function(city) { %>
-<tr>
-  <td class="center"><%= city.get('id') %></td>
-  <td><strong><%= city.get('city') %></strong></td>
-  <td><%= city.get('country') %></td>
-  <td class="center"><%= city.get('users_count') %></td>
-</tr>
-<% }) %>
+<% if (models.length == 0) { %>
+  <%= JST['templates/admin/empty_listing']({ id: 'cities', colspan: 4, show: showEmpty }) %>
+<% } else { %>
+  <% models.each(function(city) { %>
+  <tr>
+    <td class="center"><%= city.get('id') %></td>
+    <td><strong><%= city.get('city') %></strong></td>
+    <td><%= city.get('country') %></td>
+    <td class="center"><%= city.get('users_count') %></td>
+  </tr>
+  <% }) %>
+<% } %>

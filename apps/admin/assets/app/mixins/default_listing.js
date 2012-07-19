@@ -2,6 +2,7 @@ Airstrip.Admin.Mixins.DefaultListing = {
     initListing: function() {
         this.counter = new Airstrip.Admin.ListingCounterView()
         this.isLoading = false
+        this.showEmpty = true
         this.done = false
     },
     
@@ -11,10 +12,14 @@ Airstrip.Admin.Mixins.DefaultListing = {
         
         this.models.fetch({
             success: function(collection, resp) {
-                if (collection.length > 0) {
-                    self.$el.append(self.template({ models: collection }))
-                    self.counter.update(collection.length, collection.total_count)
-                } else {
+                self.$el.append(self.template({
+                    models: collection,
+                    showEmpty: self.showEmpty
+                }))
+                self.counter.update(collection.length, collection.total_count)
+                self.showEmpty = false
+                
+                if (collection.length == 0) {
                     self.done = true
                 }
             },

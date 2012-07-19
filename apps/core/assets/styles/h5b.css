@@ -80,16 +80,6 @@ table { border-collapse: collapse; border-spacing: 0; }
 td { vertical-align: top; }
 
 /* ==|== custom font faces ================================================== */
-@font-face {
-    font-family: 'DistantGalaxy';
-    src: url('../fonts/DISTGRG_-webfont.eot');
-    src: url('../fonts/DISTGRG_-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/DISTGRG_-webfont.woff') format('woff'),
-         url('../fonts/DISTGRG_-webfont.ttf') format('truetype'),
-         url('../fonts/DISTGRG_-webfont.svg#DistantGalaxyRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
 
 /* ==|== primary styles ===================================================== */
 

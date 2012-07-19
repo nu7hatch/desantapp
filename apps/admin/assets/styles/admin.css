@@ -11,6 +11,14 @@ html {
 body {
    background: url('/admin/img/light_wool.png') top left repeat;
 }
+body,
+button,
+input,
+select,
+textarea {
+  font-family: 'Droir Sans', sans-serif;
+  color: #444;
+}
 #ajax_loader {
    opacity: .3;
    display: block;
@@ -276,14 +284,16 @@ form.login .buttons #ajax_loader {
    margin: 0 -24px -24px -24px;
 }
 table.listing {
-   width: 100%;
+   width: 100%;'
+   border-spacing: 0;
+   *border-collapse: collapse;
 }
 table.listing thead {
 }
 table.listing thead th {
    background: #606060;
    border-top: 1px solid #555;
-   border-bottom: 1px solid #444;
+   border-bottom: 1px solid #222;
    color: #EEE;
    font-size: .9em;
    padding: .5em 0;
@@ -295,12 +305,36 @@ table.listing tbody tr td {
    padding: .5em .1em;
    font-size: .9em;
 }
+table.listing tbody tr:first-child td {
+}
 table.listing tbody tr:nth-child(odd) td {
    background: #F2F2F2;
 }
 table.listing tbody tr:hover td {
    background: #DDE4FF;
    text-shadow: 1px 1px 0 rgba(255,255,255,.8);
+}
+table.listing tbody tr.empty_screen td p {
+   position: absolute;
+   margin: 1em 0 0 0;
+   padding: 1em 0;
+   font-weight: bold;
+   font-size: 1.8em;
+   width: 100%;
+   color: #606060;
+   text-align: center;
+   text-shadow: 2px 2px 0px rgba(255,255,255,.8);
+}
+table.listing tbody tr.empty_screen td img {
+   border-top: 1px solid #FFF;
+}
+table.listing tbody tr.empty_screen td {
+   position: relative;
+   width: 100%;
+   height: 446px;
+   padding: 0;
+   margin: 0;
+   background: #FFF;
 }
 .center {
    text-align: center;

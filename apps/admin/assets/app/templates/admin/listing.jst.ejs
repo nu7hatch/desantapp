@@ -6,14 +6,17 @@
 <div class="extras"></div>
 
 <div class="listing_wrapper">
-  <table class="listing" id="<%= id %>">
+  <table class="listing" id="<%= id %>" cellspacing="0" cellpadding="0">
     <thead>
-      <% _.each(columns, function(column) { %>
-      <th><%= column %></th>
-      <% }) %>
+      <tr>
+        <% _.each(columns, function(column) { %>
+          <th><%= column %></th>
+        <% }) %>
+      </tr>
     </thead>
     <tbody>
-      <!-- items goes here -->
+      <div class="empty_screen">
+      </div>
     </tbody>
   </table>
 </div>

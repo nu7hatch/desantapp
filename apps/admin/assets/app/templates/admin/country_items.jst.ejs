@@ -1,7 +1,11 @@
-<% models.each(function(country) { %>
-<tr>
-  <td class="center"><%= country.get('id') %></td>
-  <td><strong><%= country.get('country') %></strong></td>
-  <td class="center"><%= country.get('users_count') %></td>
-</tr>
-<% }) %>
+<% if (models.length == 0) { %>
+  <%= JST['templates/admin/empty_listing']({ id: 'countries', colspan: 3, show: showEmpty }) %>
+<% } else { %>
+  <% models.each(function(country) { %>
+  <tr>
+    <td class="center"><%= country.get('id') %></td>
+    <td><strong><%= country.get('country') %></strong></td>
+    <td class="center"><%= country.get('users_count') %></td>
+  </tr>
+  <% }) %>
+<% } %>
