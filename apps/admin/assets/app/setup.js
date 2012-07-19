@@ -4,8 +4,7 @@
 //= require moment-1.6.2.min
 //= require d3-2.9.1.min
 //
-//= require airstrip
-//= require ./admin
+//= require_self
 //
 //= require templates/flash
 //= require views/flash_view
@@ -18,7 +17,15 @@
 //= require_tree ./views
 //= require_tree ./models
 //= require_tree ./collections
-//= require ./routes
+//
+//= require ./app
+
+window.Airstrip = {
+    Mixins: {},
+}
+window.Airstrip.Admin = {
+    Mixins: {},
+}
 
 $(function() {
     Airstrip.Admin.router = new Airstrip.Admin.Router();

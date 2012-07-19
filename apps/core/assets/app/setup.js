@@ -2,15 +2,18 @@
 //= require underscore-1.3.1.min
 //= require backbone-0.9.2.min
 //
-//= require ./airstrip
-//
+//= require_self
 //= require_tree ./helpers
 //= require_tree ./templates
 //= require_tree ./mixins
 //= require_tree ./views
 //= require_tree ./models
 //
-//= require ./routes
+//= require ./app
+
+window.Airstrip = {
+    Mixins: {},
+}
 
 $(function() {
     Airstrip.router = new Airstrip.Router();
