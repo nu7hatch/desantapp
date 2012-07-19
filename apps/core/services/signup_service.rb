@@ -3,6 +3,9 @@ module Airstrip
   # from the landing page.
   class SignupService < Struct.new(:app)
     include Reusable::Callbacks
+    extend Forwardable
+
+    def_delegator ActiveSupport::Notifications, :instrument
 
     define_callback :on_error
     
@@ -19,10 +22,12 @@ module Airstrip
       signup_attrs = (app.params[:signup] || {}).pick(*allowed_attributes)
       signup = Signup.new(signup_attrs)
       signup.set_client_info(app.request.ip, app.session[:referer])
-      
+        
       if signup.save
+        instrument "success.signup", :signup => signup
         signup.attributes.pick('email')
       else
+        instrument "error.signup", :signup => signup
         run_callback :on_error
         { :error => signup.errors.full_messages.to_sentence }
       end

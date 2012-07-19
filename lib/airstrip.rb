@@ -1,9 +1,13 @@
+require 'forwardable'
+
 require 'sprockets'
 require 'sinatra'
 require 'json'
 require 'active_record'
 require 'active_model'
 require 'active_support/all'
+require 'active_support/notifications'
+require 'active_support/log_subscriber'
 require 'active_model/validations'
 require 'geocoder'
 
