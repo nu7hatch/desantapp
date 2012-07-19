@@ -12,6 +12,8 @@ module Airstrip
   #   referer     :string(255)
   #   lat         :float
   #   lon         :float
+  #   city        :string(255)
+  #   country     :string(255)
   #   created_at  :timestamp,    not null
   #   
   class Signup < ActiveRecord::Base

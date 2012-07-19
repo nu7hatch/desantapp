@@ -1,3 +1,5 @@
+require 'reusable/helpers/email_helpers'
+
 module Airstrip
   class SignupLogger < ActiveSupport::LogSubscriber
     def error(event)
@@ -9,16 +11,13 @@ module Airstrip
     def success(event)
       signup = event.payload[:signup]
 
-      escaped_email = escape_email(signup.email.to_s)
-      logger.info color("SIGNUP Success, #{escaped_email.bold}", GREEN)
+      anon_email = EmailHelpers.anonimize_email(signup.email.to_s)
+      logger.info color("SIGNUP Success, #{anon_email.bold}", GREEN)
     end
 
     private
     
     def escape_email(email)
-      name, domain = email.split('@')
-      name = name.size > 3 ? name.to(2) + '...' : name.first + '...'
-      return [ name, domain ].join('@')
     end
   end
 end

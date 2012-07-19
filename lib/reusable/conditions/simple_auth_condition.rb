@@ -1,4 +1,15 @@
 module Reusable
+  # Public: Provides dummy authentication combined with AuthHelpers.
+  #
+  # Usage
+  #
+  #   class App < Sinatra::Application
+  #     include SimpleAuthCondition
+  #
+  #     get "/admin/foo", :auth => true do
+  #       erb "Something only admin can see..."
+  #     end
+  #
   module SimpleAuthCondition
     def self.extended(app)
       app.set(:auth) do |*envs|

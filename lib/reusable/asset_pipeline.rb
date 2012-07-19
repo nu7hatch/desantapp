@@ -1,7 +1,7 @@
 require 'sprockets'
 
 module Reusable
-  # Internal: Asset pipeline serves all dynamically generated asssets
+  # Public: Asset pipeline serves all dynamically generated asssets
   # through sprockets pipeline.
   class AssetPipeline
     # List of default asset paths.

@@ -1,4 +1,5 @@
 require File.expand_path("../../../spec_helper", __FILE__)
+require 'reusable/helpers/auth_helpers'
 
 class DummyAppWithAuthHelpers
   include Reusable::AuthHelpers
