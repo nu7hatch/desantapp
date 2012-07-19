@@ -1,11 +1,9 @@
-require 'core/models/signup'
 require 'reusable/helpers/auth_helpers'
+require 'core/models/signup'
 
-require 'admin/presenters/latest_signups_presenter'
-require 'admin/presenters/referers_presenter'
-require 'admin/presenters/cities_presenter'
-require 'admin/presenters/countries_presenter'
-require 'admin/forms/login_form'
+require_rel 'presenters'
+require_rel 'forms'
+require_rel 'loggers'
 
 module Airstrip
   module Admin
@@ -53,7 +51,8 @@ module Airstrip
 
         return redirect(to('/session')) if logged_in?
 
-        login_f = LoginForm.new(*params.values_at(:login, :password))
+        attrs = params.values_at(:login, :password) + [ request.ip ]
+        login_f = LoginForm.new(*attrs)
         login_f.on_error { status 400 }
         login_f.call { |login, token| authenticate!(login, token) }.to_json
       end
@@ -76,8 +75,7 @@ module Airstrip
         content_type "text/csv"
         headers "Content-Disposition" => "attachment;filename=signups.csv"
 
-        signups_p = LatestSignupsPresenter.new
-        signups_p.mapped_signups.to_csv
+        LatestSignupsPresenter.new.mapped_signups.to_csv
       end
 
       before "/api/*" do
@@ -90,8 +88,7 @@ module Airstrip
       end
 
       get "/api/signups", :provides => 'json' do
-        signups_p = LatestSignupsPresenter.new(params[:page])
-        signups_p.call.to_json
+        LatestSignupsPresenter.new(params[:page]).call.to_json
       end
 
       get "/api/cities", :provides => 'json' do
@@ -100,23 +97,19 @@ module Airstrip
       end
 
       get "/api/cities/map", :provides => 'json' do
-        cities_p = CitiesPresenter.new
-        cities_p.mercator_data.to_json
+        CitiesPresenter.new.mercator_data.to_json
       end
 
       get "/api/countries", :provides => 'json' do
-        countries_p = CountriesPresenter.new(params[:page])
-        countries_p.call.to_json
+        CountriesPresenter.new(params[:page]).call.to_json
       end
 
       get "/api/countries/map", :provides => 'json' do
-        countries_p = CountriesPresenter.new
-        countries_p.mercator_data.to_json
+        CountriesPresenter.new.mercator_data.to_json
       end
 
       get "/api/referers", :provides => 'json' do
-        referers_p = ReferersPresenter.new(params[:page])
-        referers_p.call.to_json
+        ReferersPresenter.new(params[:page]).call.to_json
       end
     end
   end

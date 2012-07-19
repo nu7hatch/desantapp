@@ -15,6 +15,7 @@ gem "padrino-helpers"
 gem "sprockets"
 gem "ejs"
 gem "geocoder"
+gem "require_all"
 
 # Development, however must be installed to perform rake tasks.
 gem "machinist", "~> 2.0"

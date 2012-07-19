@@ -1,23 +1,23 @@
 require 'reusable/helpers/email_helpers'
 
 module Airstrip
+  # Internal: A logger bound to `*.signup` notifications.
   class SignupLogger < ActiveSupport::LogSubscriber
+    include Reusable::EmailHelpers
+
     def error(event)
       signup = event.payload[:signup]
-
-      logger.error color("SIGNUP #{signup.errors.full_messages.to_sentence}, #{signup.email.to_s.bold}", YELLOW)
+      
+      logger.error 'SIGNUP.ERROR'.bold.yellow + 
+        " #{signup.errors.full_messages.to_sentence}, #{signup.email.to_s.bold}".yellow
     end
 
     def success(event)
       signup = event.payload[:signup]
-
-      anon_email = EmailHelpers.anonimize_email(signup.email.to_s)
-      logger.info color("SIGNUP Success, #{anon_email.bold}", GREEN)
-    end
-
-    private
-    
-    def escape_email(email)
+      anon_email = anonimize_email(signup.email.to_s)
+      
+      logger.info 'SIGNUP.SUCCESS'.bold.green + 
+        " #{anon_email.bold}".green
     end
   end
 end

@@ -3,9 +3,7 @@ module Airstrip
   # from the landing page.
   class SignupService < Struct.new(:app)
     include Reusable::Callbacks
-    extend Forwardable
-
-    def_delegator ActiveSupport::Notifications, :instrument
+    include Reusable::Notifications
 
     define_callback :on_error
     

@@ -1,9 +1,9 @@
-require 'core/models/signup'
-require 'core/services/signup_service'
-require 'core/helpers/metric_helpers'
-require 'core/loggers/signup_logger'
-
 require 'uri'
+
+require_rel 'models'
+require_rel 'services'
+require_rel 'helpers'
+require_rel 'loggers'
 
 module Airstrip
   module Core
