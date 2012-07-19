@@ -1,13 +1,38 @@
+/**
+ * Public: A mixin providing infinite scroll pagination in
+ * listing views.
+ *
+ * In order to make it work initScroll() must be called from
+ * view's initializer, eg:
+ *
+ *   UsersListView = Backbone.View.extend({
+ *       initialize: function() {
+ *           this.initScroll()
+ *       }
+ *   })
+ *
+ *   _.extend(UsersListView.prototype, Airstrip.Admin.Mixins.InifiniteScrollListing)
+ */
 Airstrip.Admin.Mixins.InifiniteScrollListing = {
+    /**
+     * Public: Initializez infinite scrolling configuration.
+     */
     initScroll: function() {
         _.bindAll(this, 'checkScroll')
-        bindScroll(this.checkScroll)        
+        Airstrip.Admin.bindScroll(this.checkScroll)        
     },
-        
-    checkScroll: function (e) {
-        var self = this
 
-        scrollReached(!this.items.isLoading && !this.items.done, function() {
+    /**
+     * Internal: A callback for window's scroll event.
+     *
+     * e - An Event passed by the caller.
+     *
+     */
+    checkScroll: function(e) {
+        var self = this
+        condition = !this.items.isLoading && !this.items.done
+        
+        Airstrip.Admin.whenScrollReached(condition, function() {
             self.items.render()
         })
     }

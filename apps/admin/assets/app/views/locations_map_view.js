@@ -1,3 +1,7 @@
+/**
+ * Public: This view renders world map graphs with selected user
+ * locations grouped by nearby cities or countries. 
+ */
 Airstrip.Admin.LocationsMapView = Backbone.View.extend({
     el: '.extras',
     template: '<div id="map"><svg></svg></div>',
@@ -6,17 +10,19 @@ Airstrip.Admin.LocationsMapView = Backbone.View.extend({
         this.$el.html(this.template)
         this.$map = this.$('#map')
 
-        graph = this.buildGraph()
-        graph.load(this.options.group)
+        this.buildGraph()
+            .load(this.options.group)
 
         return this
     },
 
+    /**
+     * Internal: Initializes graph settings and returns itself.
+     */
     buildGraph: function() {
         this.margin = { top: 0, right: 0, bottom: 0, left: 0 }
         this.width  = 800 - this.margin.left - this.margin.right
         this.height = this.$map.height() - this.margin.top - this.margin.bottom
-
         
         this.projection = d3.geo.mercator()
             .scale(this.width)
@@ -37,22 +43,19 @@ Airstrip.Admin.LocationsMapView = Backbone.View.extend({
 
         return this
     },
-    
+
+    /**
+     * Internal: Loads data for the specified group and renders a neat
+     * graph representation for them.
+     *
+     * group - A String group to be loaded (either 'cities' or 'countries')
+     *
+     * Returns itself.
+     */
     load: function(group) {
         var self = this
         
-        mercatorData = new (Backbone.Collection.extend({
-            url: function() {
-                return "/admin/api/" + group + "/map"
-            },
-            
-            parse: function(resp, xhr) {
-                this.total_count = resp.total_count
-                this.data = resp.data
-                return []
-            }
-        }))()
-        
+        mercatorData = new Airstrip.Admin.MercatorData({ group: group })
         mercatorData.fetch({
             success: function(collection, resp) {
                 if (group == 'countries') {
@@ -65,8 +68,18 @@ Airstrip.Admin.LocationsMapView = Backbone.View.extend({
                 Airstrip.renderFlash('error', "Something went wrong while loading map!")
             }
         })
+
+        return this
     },
 
+    /**
+     * Internal: Draws a world map with countries data.
+     *
+     * total - A Number total count of items.
+     * data  - An Array with data to be displayed.
+     *
+     * Returns itself.
+     */
     drawCountries: function(total, data) {
         var self = this
         
@@ -86,8 +99,18 @@ Airstrip.Admin.LocationsMapView = Backbone.View.extend({
                     d3.select(this).attr("class", "feature")
                 })
         })
+
+        return this;
     },
 
+    /**
+     * Internal: Draws a world map with cities data.
+     *
+     * total - A Number total count of items.
+     * data  - An Array with data to be displayed.
+     *
+     * Returns itself.
+     */
     drawCities: function(total, data) {
         var self = this
 
@@ -135,8 +158,32 @@ Airstrip.Admin.LocationsMapView = Backbone.View.extend({
                         .attr("r", circleRadius)
                 })
         })
+
+        return this
     },
 
+    /**
+     * Intenral: A color helper - gets item value and maximum value
+     * and build a color with appropriate intensity for them. Another
+     * params indicate initial intensity of red, green and blue
+     * channels.
+     *
+     * val   - A Number value to be represented.
+     * total - A Number maximum value.
+     * r     - Initial red channel value intensity.
+     * g     - Initial green channel value intensity.
+     * b     - Initial blue channel value intensity.
+     *
+     * Example
+     *
+     *   this.scaleColor(val, total, 2, 1.1, 1.5)
+     *
+     * This will use a bluish-green (cyan-green) scale of the colors
+     * to indicate value to total relation. The biggest color channel
+     * intensity defined, the brighter color is.
+     *
+     * Returns d3's rgb color object.
+     */
     scaleColor: function(val, total, r, g, b) {
         if (val) {
             scale = 255 - 255 * (val / total)

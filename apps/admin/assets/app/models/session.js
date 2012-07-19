@@ -1,3 +1,7 @@
+/**
+ * Public; Admin sessions logic. App should have one global
+ * instance of this model (eg. app.session).
+ */
 Airstrip.Admin.Session = Backbone.Model.extend({
     url: '/admin/session',
     
@@ -7,6 +11,10 @@ Airstrip.Admin.Session = Backbone.Model.extend({
         access_token: null,
     },
 
+    /**
+     * Public: Returns whether current session is authenticated
+     * or not.
+     */
     isAuthenticated: function() {
         return !!this.get('access_token')
     },

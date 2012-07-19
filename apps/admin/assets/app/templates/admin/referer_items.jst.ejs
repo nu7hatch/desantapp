@@ -4,7 +4,7 @@
   <% models.each(function(referer) { %>
   <tr>
     <td class="center"><%= referer.get('id') %></td>
-    <td><strong><%= referer.get('url') %></strong></td>
+    <td><strong><a href="<%= referer.get('url') %>" target="_blank"><%= referer.get('url') %></a></strong></td>
     <td class="center"><%= referer.get('users_count') %></td>
   </tr>
   <% }) %>

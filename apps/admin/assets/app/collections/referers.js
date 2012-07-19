@@ -1,16 +1,13 @@
-Airstrip.Admin.Referer = Backbone.Model.extend({
-    defaults: {
-        id: null,
-        url: null,
-        users_count: null,
-    }
-})
-
+/**
+ * Public: A collection of the websites which referred registered
+ * users. It's a reflection of backend's Admin::ReferersPresenter.
+ *
+ * This collection is paginated.
+ */
 Airstrip.Admin.Referers = Backbone.Collection.extend({
     url: function() {
         return '/admin/api/referers?page=' + this.page
     },
-    model: Airstrip.Admin.Referer,
     page: 1,
     
     parse: function(resp, xhr) {

@@ -1,3 +1,6 @@
+/**
+ * Internal: A view for the signup form submit button.
+ */
 Airstrip.SignupSubmitButtonView = Backbone.View.extend({
     el: '#signup_form_submit',
     
@@ -12,8 +15,9 @@ Airstrip.SignupSubmitButtonView = Backbone.View.extend({
 
     submit: function(e) {
         e.preventDefault()
+        var self = this
         
-        this.$el.attr("disabled", "disabled")
+        this.disable()
 
         signup = new Airstrip.Signup({ email: this.email.val() })
         signup.save({}, {
@@ -23,8 +27,8 @@ Airstrip.SignupSubmitButtonView = Backbone.View.extend({
             },
 
             error: function(model, resp) {
+                self.enable()
                 var data = Airstrip.parseResponse(resp)
-                Airstrip.signupFormView.enable()
                 Airstrip.renderFlash('error', data.error)
             }
         })
@@ -33,6 +37,10 @@ Airstrip.SignupSubmitButtonView = Backbone.View.extend({
 
 _.extend(Airstrip.SignupSubmitButtonView.prototype, Airstrip.Mixins.EnableField)
 
+/**
+ * Internal: A view for the signup form. The 'div#signup_form_wrapper'
+ * DOM Object must be defined in order to make it work.
+ */
 Airstrip.SignupFormView = Backbone.View.extend({
     el: '#signup_form_wrapper',
     template: JST["templates/signup_form"],
@@ -46,6 +54,3 @@ Airstrip.SignupFormView = Backbone.View.extend({
         return this
     },
 })
-
-_.extend(Airstrip.SignupFormView.prototype, Airstrip.Mixins.EnableForm);
-

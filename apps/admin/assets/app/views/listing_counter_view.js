@@ -1,3 +1,7 @@
+/**
+ * Public: This is a view for listing counters. It shows a number
+ * of the items displayed compared to total count of the listing.
+ */
 Airstrip.Admin.ListingCounterView = Backbone.View.extend({
     el: '#counter',
     template: JST['templates/admin/listing_counter'],
@@ -15,6 +19,15 @@ Airstrip.Admin.ListingCounterView = Backbone.View.extend({
         return this
     },
 
+    /**
+     * Public: Updates counters with given values and re-renders
+     * itself.
+     *
+     * add   - A Number count of elements added to the listing.
+     * total - A Number total count of elements.
+     *
+     * Returns itself.
+     */
     update: function(add, total) {
         this.current += add
         this.total = total

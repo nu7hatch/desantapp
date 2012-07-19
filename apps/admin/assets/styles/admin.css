@@ -1,6 +1,6 @@
 /*
  *= require h5b
- *= require ./fontawesome
+ *= require fontawesome
  */
 
 /* ==|== primary styles ===================================================== */
@@ -221,6 +221,7 @@ form.login .buttons #ajax_loader {
 }
 #navbar nav li {
    display: inline-block;
+   float: left;
 }
 #navbar nav a {
    font-size: .8em;

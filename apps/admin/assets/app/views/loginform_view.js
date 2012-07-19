@@ -1,3 +1,7 @@
+/**
+ * Public: A view for the login form's submit button. It handles
+ * user input and provides submit operation.
+ */
 Airstrip.Admin.LoginSubmitButtonView = Backbone.View.extend({
     el: '#login_form_submit',
     
@@ -14,8 +18,9 @@ Airstrip.Admin.LoginSubmitButtonView = Backbone.View.extend({
 
     submit: function(e) {
         e.preventDefault()
+        var self = this
         
-        this.$el.attr("disabled", "disabled")
+        this.disable()
 
         Airstrip.Admin.router.session.save({
             login: this.login.val(),
@@ -27,7 +32,7 @@ Airstrip.Admin.LoginSubmitButtonView = Backbone.View.extend({
             },
             error: function(model, resp) {
                 data = Airstrip.parseResponse(resp)
-                Airstrip.Admin.loginFormView.enable()
+                self.enable()
                 Airstrip.renderFlash('error', data.error)
             }
         })
@@ -37,6 +42,10 @@ Airstrip.Admin.LoginSubmitButtonView = Backbone.View.extend({
 _.extend(Airstrip.Admin.LoginSubmitButtonView.prototype,
          Airstrip.Mixins.EnableField)
 
+/**
+ * Public: The login form view - displays login form and handles
+ * user input.
+ */
 Airstrip.Admin.LoginFormView = Backbone.View.extend({
     el: '#yield',
     template: JST['templates/admin/login_form'],
@@ -54,6 +63,3 @@ Airstrip.Admin.LoginFormView = Backbone.View.extend({
         e.preventDefault()
     },
 })
-
-_.extend(Airstrip.Admin.LoginFormView.prototype,
-         Airstrip.Mixins.EnableForm);

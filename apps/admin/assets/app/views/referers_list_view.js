@@ -1,3 +1,7 @@
+/**
+ * Internal: A view for the referers list items. It's derived from
+ * the default listing.
+ */
 Airstrip.Admin.ReferersListItemsView = Backbone.View.extend({
     el: '#referers tbody',
     template: JST['templates/admin/referer_items'],
@@ -11,6 +15,10 @@ Airstrip.Admin.ReferersListItemsView = Backbone.View.extend({
 _.extend(Airstrip.Admin.ReferersListItemsView.prototype,
          Airstrip.Admin.Mixins.DefaultListing)
 
+/**
+ * Internal: A view for the refering websites list. It's an
+ * infinitely scrolled listing.
+ */
 Airstrip.Admin.ReferersListView = Backbone.View.extend({
     el: '#content',
     template: JST['templates/admin/listing'],

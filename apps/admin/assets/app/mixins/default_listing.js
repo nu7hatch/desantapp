@@ -1,11 +1,37 @@
+/**
+ * Public: A view extension for the listing pages.
+ *
+ * In order to make it work the initListing() function must be
+ * called in the view's initializer and initialized models collection
+ * must be set, eg:
+ *
+ *   UsersListItemsView = Backbone.View.extend({
+ *       el: '#users tbody',
+ *
+ *       initialize: function() {
+ *           this.models = new Users()
+ *           this.initListing()
+ *       }
+ *   })
+ *
+ *   _.extend(UsersListItemsView.prototype, Airstrip.Admin.Mixins.DefaultListing)
+ *
+ */
 Airstrip.Admin.Mixins.DefaultListing = {
+    /**
+     * Public: Initializes listing configuration.
+     */
     initListing: function() {
         this.counter = new Airstrip.Admin.ListingCounterView()
         this.isLoading = false
         this.showEmpty = true
         this.done = false
     },
-    
+
+    /**
+     * Public: Loads collection items from the server and displays
+     * them on the page.
+     */
     load: function() {
         var self = this
         this.isLoading = true;
@@ -32,7 +58,10 @@ Airstrip.Admin.Mixins.DefaultListing = {
 
         return this;
     },
-    
+
+    /**
+     * Public: Calls load(), paginates and renders stuff.
+     */
     render: function() {
         this.load()
         this.models.page += 1;

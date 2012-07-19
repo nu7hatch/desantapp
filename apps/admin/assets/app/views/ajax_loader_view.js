@@ -1,3 +1,8 @@
+/**
+ * Internal: A view for the ajax loader. It's magically bound
+ * to all the ajax start/stop events, so you don't have to worry
+ * about it at all.
+ */
 Airstrip.Admin.AjaxLoaderView = Backbone.View.extend({
     el: '#ajax_loader',
 

@@ -1,17 +1,13 @@
-Airstrip.Admin.City = Backbone.Model.extend({
-    defaults: {
-        id: null,
-        city: null,
-        country: null,
-        users_count: null,
-    }
-})
-
+/**
+ * Public: A collection of the cities from where users have been
+ * registered. It's a reflection of backend's Admin::CitiesPresenter.
+ *
+ * This collection is paginated.
+ */
 Airstrip.Admin.Cities = Backbone.Collection.extend({
     url: function() {
         return '/admin/api/cities?page=' + this.page
     },
-    model: Airstrip.Admin.City,
     page: 1,
     
     parse: function(resp, xhr) {

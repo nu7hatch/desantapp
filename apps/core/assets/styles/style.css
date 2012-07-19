@@ -1,12 +1,13 @@
 /*
  *= require ./h5b
+ *= require ./fontawesome
  */
 
 /* ==|== primary styles ===================================================== */
 
 body {
    color: #FFF;
-   font-family: 'Mate', serif;
+   font-family: 'Droid Sans', serif;
    background-color: #254c36;
    background-image: url("/img/bg.jpg");
    background-position: center left;
