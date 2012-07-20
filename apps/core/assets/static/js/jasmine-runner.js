@@ -1,9 +1,13 @@
+var jsApiReporter;
+
 (function() {
     var jasmineEnv = jasmine.getEnv();
     jasmineEnv.updateInterval = 1000;
 
+    jsApiReporter = new jasmine.JsApiReporter();
     var htmlReporter = new jasmine.HtmlReporter();
 
+    jasmineEnv.addReporter(jsApiReporter);
     jasmineEnv.addReporter(htmlReporter);
 
     jasmineEnv.specFilter = function(spec) {

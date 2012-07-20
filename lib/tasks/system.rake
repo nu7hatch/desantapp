@@ -8,3 +8,7 @@ end
 task :environment do
   require File.expand_path('../../../boot', __FILE__)
 end
+
+task :puts do
+  puts
+end

@@ -21,9 +21,13 @@ gem "require_all"
 gem "machinist", "~> 2.0"
 gem "ffaker"
 gem "rspec", "~> 2.4"
+gem "rspec-jasmine"
 gem "mocha", "0.11.4"
-gem 'fuubar'
-gem "jasmine"
+gem "debugger"
+
+group :development do
+  gem "foreman"
+end
 
 group :mysql do
   gem 'mysql2'
