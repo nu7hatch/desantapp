@@ -20,6 +20,7 @@ the directory structure explained:
 
     apps/*/forms/           form classes.
     apps/*/helpers/         application specified helpers. 
+    apps/*/loggers/         custom notification subscribers.
     apps/*/models/          model classes.
     apps/*/presenters/      application presenters.
     apps/*/services/        application service classes.
@@ -30,7 +31,7 @@ the directory structure explained:
     db/migrate/             database migrations.
     lib/                    libraries and extensions, also app's core files.
     log/                    log files.
-    spec/                   test files.
+    spec/                   global test files.
 
 Project is booted with `boot.rb` configuration file. All the apps (components)
 are routed in config.ru, with standard Rack::Router.
@@ -82,6 +83,18 @@ here as well.
 If everything wen fine, you should go to `http://localhost:5000/` and see
 a demo landing page! Use `http://localhost:5000/admin/` to access admin
 area.
+
+To run RSpec unit tests use the following rake task:
+
+    $ foreman run rake spec
+
+Frontend tests (JavaScript unit tests) runs with:
+
+    $ foreman run rake spec:jasmine
+
+You can also run all the specs together:
+
+    $ foreman run rake spec:all
 
 ## Copyright
 
