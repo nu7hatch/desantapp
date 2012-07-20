@@ -7,10 +7,8 @@ require 'mocha'
 require 'airstrip'
 
 # Flush database and re-run migrations.
-migrations = File.expand_path('../../db/migrate', __FILE__)
-ActiveRecord::Migration.verbose = false
-ActiveRecord::Migrator.migrate(migrations, 0)
-ActiveRecord::Migrator.migrate(migrations, nil)
+require 'reusable/active_record_tasks'
+Reusable::ActiveRecordTasks.test_prepare(File.join(ROOT_PATH, 'db/schema.rb'))
 
 # Load extra spec helpers and support files.
 Dir[File.expand_path("../support/**/*.rb", __FILE__)].each do |helper| 

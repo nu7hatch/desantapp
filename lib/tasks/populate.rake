@@ -1,10 +1,12 @@
-desc "Populates dummy data to the database"
-task :populate => :'db:reset' do
-  require File.expand_path('../../../apps/core/spec/support/blueprints', __FILE__)
+namespace :db do
+  desc "Populates dummy data to the database"
+  task :populate => :'db:reset' do
+    require File.expand_path('../../../apps/core/spec/support/blueprints', __FILE__)
 
-  include Populate
+    include Populate
 
-  populate_signups!
+    populate_signups!
+  end
 end
 
 module Populate
