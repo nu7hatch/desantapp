@@ -4,48 +4,19 @@ _Airstrip_ is an open source, neat landing page application. It's simple to
 use, customize and extend to your needs. There's an awesome admin area
 too - it will give you all the information and statistics you need.
 
-## Introduction, design explained
+## Quick start with Vagrant
 
-_Airstrip_ is not a Rails app, it's an experiment with full stack, single
-page application in _Backbone.js_ managed by _Sinatra_ backend. Here's
-the directory structure explained:
+There's a public Vagrant box configured to run with _Airstrip_. You can hop
+into the project qucikly by running:
 
-    apps/                   applications (components actually).
+    $ gem install vagrant # if not installed yet
+    $ vagrant up
+    $ vagrant ssh
+    vagrant@vagrant:~$ cd airstrip
 
-    apps/*/assets/          asset pipeline files.
-    apps/*/assets/static/   static files.
-    apps/*/assets/app/      backbone application files.
-    apps/*/assets/libs/     javascript libraries.
-    apps/*/assets/styles/   stylesheet files.
+Now just go and perform traditional installation steps described below.
 
-    apps/*/forms/           form classes.
-    apps/*/helpers/         application specified helpers. 
-    apps/*/loggers/         custom notification subscribers.
-    apps/*/models/          model classes.
-    apps/*/presenters/      application presenters.
-    apps/*/services/        application service classes.
-    apps/*/spec/            application specified test files.  
-    apps/*/views/           application view files.
-
-    config/                 configuration files.
-    db/migrate/             database migrations.
-    lib/                    libraries and extensions, also app's core files.
-    log/                    log files.
-    spec/                   global test files.
-
-Project is booted with `boot.rb` configuration file. All the apps (components)
-are routed in config.ru, with standard Rack::Router.
-
-The main goal of the experiment was to provide system for easy and robust
-work on _Backbone.js_ application and reusable backend elements. It's also
-aims to get rid of stupid Rails' assumptions that action = page, and models
-are used both in forms and presentations. In _Airstrip_, **models** are separated
-from **forms** and **presenters**. Model takes care about business logic, when
-forms handle input and presenters output. More sophisticated operations
-are handled with **services**. This design makes the stuff easy to test
-and reuse across the projects.
-
-## Getting started
+## Traditional installation and setup
 
 First of all, install all the dependencies using _Bundler_:
 
@@ -95,6 +66,52 @@ Frontend tests (JavaScript unit tests) runs with:
 You can also run all the specs together:
 
     $ foreman run rake spec:all
+    
+For development purposes you can populate dummy data using following
+rake task:
+
+    $ foreman run rake db:populate
+
+## Design introduction
+
+_Airstrip_ is not a Rails app, it's an experiment with full stack, single
+page application in _Backbone.js_ managed by _Sinatra_ backend. Here's
+the directory structure explained:
+
+    apps/                   applications (components actually).
+
+    apps/*/assets/          asset pipeline files.
+    apps/*/assets/static/   static files.
+    apps/*/assets/app/      backbone application files.
+    apps/*/assets/libs/     javascript libraries.
+    apps/*/assets/styles/   stylesheet files.
+
+    apps/*/forms/           form classes.
+    apps/*/helpers/         application specified helpers. 
+    apps/*/loggers/         custom notification subscribers.
+    apps/*/models/          model classes.
+    apps/*/presenters/      application presenters.
+    apps/*/services/        application service classes.
+    apps/*/spec/            application specified test files.  
+    apps/*/views/           application view files.
+
+    config/                 configuration files.
+    db/migrate/             database migrations.
+    lib/                    libraries and extensions, also app's core files.
+    log/                    log files.
+    spec/                   global test files.
+
+Project is booted with `boot.rb` configuration file. All the apps (components)
+are routed in config.ru, with standard Rack::Router.
+
+The main goal of the experiment was to provide system for easy and robust
+work on _Backbone.js_ application and reusable backend elements. It's also
+aims to get rid of stupid Rails' assumptions that action = page, and models
+are used both in forms and presentations. In _Airstrip_, **models** are separated
+from **forms** and **presenters**. Model takes care about business logic, when
+forms handle input and presenters output. More sophisticated operations
+are handled with **services**. This design makes the stuff easy to test
+and reuse across the projects.
 
 ## Copyright
 
