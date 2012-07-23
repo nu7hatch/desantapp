@@ -21,7 +21,7 @@ into the project qucikly by running:
     $ gem install vagrant # if not installed yet
     $ vagrant up
     $ vagrant ssh
-    vagrant@vagrant:~$ cd desant
+    vagrant@vagrant:~$ cd desantapp
 
 Now just go and perform installation and setup steps described below.
 
@@ -61,7 +61,7 @@ here as well.
 
     $ foreman start
 
-If everything wen fine, you should go to `http://localhost:5000/` and see
+If everything went fine, you should go to `http://localhost:5000/` and see
 a demo landing page! Use `http://localhost:5000/admin/` to access admin
 area.
 
