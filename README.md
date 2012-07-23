@@ -1,6 +1,13 @@
 # Desant - Open Source Landing Pages!
 
-_Desant_ is an open source, neat landing page application. It's simple to
+<blockquote>
+<strong>Desant</strong> /dɛsɑːnt/ is a Polish word for military landing operationis aimed 
+at a bringing the landing force usually via landing craft to a shore or to 
+land with the purpose of power projection ashore by forces coming usually 
+from ships and also aircraft and able to fight.
+</blockquote>
+
+But this _Desant_ is an open source, neat landing page application. It's simple to
 use, customize and extend to your needs. There's an awesome admin area
 too - it will give you all the information and statistics you need.
 
@@ -22,9 +29,9 @@ First of all, install all the dependencies using _Bundler_:
 
     $ bundle
 
-_Desant_ uses _MySQL_ or _PostgresSQL_ as backend, so you should have
-one of these databases installed and running. First, copy `.env.sample`
-to `.env` - this file contains i.a. database configuration and admin setup:
+_Desant_ uses _MySQL_ as backend, so you should have this database installed 
+and running. If you have it then copy `.env.sample` to `.env` - this file contains i.a. 
+database configuration and admin setup:
 
     $ cp .env.sample .env
 
