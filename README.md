@@ -13,6 +13,11 @@ _Desant_ is an open source, neat landing page application. It's simple to
 use, customize and extend to your needs. There's an awesome admin area
 too - it will give you all the information and statistics you need.
 
+## Demo
+
+You can check online demo of the admin on [**here**](http://demo.desantapp.com/admin).
+Login as `root` with password `pass`.
+
 ## Quick start with Vagrant
 
 There's a public Vagrant box configured to run with _Desant_. You can hop
