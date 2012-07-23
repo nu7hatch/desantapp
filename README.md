@@ -1,7 +1,7 @@
 ![Desant](https://dl.dropbox.com/s/jfvo6fsyzgsdaad/head.png)
 
 <blockquote>
-<strong>Desant</strong> /dɛsɑːnt/ is a Polish word for military landing operationis aimed 
+<strong>Desant</strong> /dɛsɑːnt/ is a Polish word for military landing operations aimed 
 at a bringing the landing force usually via landing craft to a shore or to 
 land with the purpose of power projection ashore by forces coming usually 
 from ships and also aircraft and able to fight.
@@ -135,6 +135,17 @@ TODO...
 
 ## Copyright
 
-Copyright (C) 2012 by Chris Kowalik a.k.a nu7hatch
+Copyright (C) 2012 by Chris Kowalik a.k.a nu7hatch <chris@nu7hat.ch>
 
-_Desant_ is distributed under an MIT-style license. See LICENSE for details.
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
