@@ -23,9 +23,9 @@ into the project qucikly by running:
     $ vagrant ssh
     vagrant@vagrant:~$ cd desant
 
-Now just go and perform traditional installation steps described below.
+Now just go and perform installation and setup steps described below.
 
-## Traditional installation and setup
+## Installation and setup
 
 First of all, install all the dependencies using _Bundler_:
 
