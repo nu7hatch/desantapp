@@ -126,6 +126,7 @@ header {
    float:left;
    position:fixed;
    margin-top: -50px;
+   font-family: 'Droid Sans', sans-serif;
 }
 
 header ul {
@@ -277,7 +278,7 @@ footer a {
 
 }
 
-@media print, screen and (max-width: 960px) {
+@media print, screen and (max-width: 960px), (max-height: 520px) {
 
    body {
       background-size: 1280px;
@@ -330,7 +331,10 @@ footer a {
    
    header {
       padding:0;
-      margin-bottom: 85px;
+   }
+
+   .expl {
+      margin-top: 135px;
    }
 
    header ul li, header ul li + li, header ul li + li + li {
@@ -363,7 +367,11 @@ footer a {
       margin-bottom: -15px;
       top: -15px;
    }
-   
+
+   .expl {
+      margin-top: 15px;
+   }
+
    header ul {
       display:none;
    }
