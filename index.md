@@ -2,6 +2,11 @@
 layout: default
 ---
 
+## Demo
+
+You can check online demo of the admin on [**here**](http://demo.desantapp.com/admin).
+Login as `root` with password `pass`.
+
 ## Quick start
 
 There's a public Vagrant box configured to run with Desant. You can hop
