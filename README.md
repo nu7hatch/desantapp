@@ -1,4 +1,4 @@
-# Desant - Open Source Landing Pages!
+![Desant](https://dl.dropbox.com/s/jfvo6fsyzgsdaad/head.png)
 
 <blockquote>
 <strong>Desant</strong> /dɛsɑːnt/ is a Polish word for military landing operationis aimed 
@@ -7,7 +7,9 @@ land with the purpose of power projection ashore by forces coming usually
 from ships and also aircraft and able to fight.
 </blockquote>
 
-But this _Desant_ is an open source, neat landing page application. It's simple to
+# Desant - Open source landing pages!
+
+_Desant_ is an open source, neat landing page application. It's simple to
 use, customize and extend to your needs. There's an awesome admin area
 too - it will give you all the information and statistics you need.
 
@@ -120,6 +122,12 @@ from **forms** and **presenters**. Model takes care about business logic, when
 forms handle input and presenters output. More sophisticated operations
 are handled with **services**. This design makes the stuff easy to test
 and reuse across the projects.
+
+## Screenshots
+
+![Registered users](https://dl.dropbox.com/s/ss5sbn8e4hh834i/5.png)
+
+![Locations](https://dl.dropbox.com/s/q6frhrhnrnov8q5/3.png)
 
 ## Copyright
 
