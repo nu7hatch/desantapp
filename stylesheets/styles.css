@@ -221,6 +221,7 @@ section {
 .intro {
    background-color: rgba(55,44,197,.8);
    margin-bottom: 1em;
+   font-size: 1.2em;
 }
 
 .intro p {
