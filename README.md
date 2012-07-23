@@ -133,6 +133,8 @@ TODO...
 
 ![Locations](https://dl.dropbox.com/s/q6frhrhnrnov8q5/3.png)
 
+![Login page](https://dl.dropbox.com/s/qmyjs6792oeob7b/1.png)
+
 ## Copyright
 
 Copyright (C) 2012 by Chris Kowalik a.k.a nu7hatch <chris@nu7hat.ch>
