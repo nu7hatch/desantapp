@@ -20,18 +20,18 @@
 //
 //= require ./app
 
-window.Airstrip = {
+window.Desant = {
     Mixins: {},
 }
-window.Airstrip.Admin = {
+window.Desant.Admin = {
     Mixins: {},
 }
 
 $(function() {
-    Airstrip.Admin.router = new Airstrip.Admin.Router();
-    app = Airstrip.Admin.router
+    Desant.Admin.router = new Desant.Admin.Router();
+    app = Desant.Admin.router
     app.session.fetch().complete(function() {
-        Airstrip.Admin.chromeView = new Airstrip.Admin.ChromeView()
+        Desant.Admin.chromeView = new Desant.Admin.ChromeView()
         Backbone.history.start({ pushState: true })
     })
 })

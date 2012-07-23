@@ -1,4 +1,4 @@
-module Airstrip
+module Desant
   # Signup entity represents single user signed up for the beta
   # access.
   #

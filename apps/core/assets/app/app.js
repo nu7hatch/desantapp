@@ -1,10 +1,10 @@
-Airstrip.Router = Backbone.Router.extend({
+Desant.Router = Backbone.Router.extend({
     routes: {
         '': 'home',
     },
 
     home: function() {
-        Airstrip.signupFormView = new Airstrip.SignupFormView({})
-        Airstrip.signupFormView.render()
+        Desant.signupFormView = new Desant.SignupFormView({})
+        Desant.signupFormView.render()
     }
 })

@@ -19,7 +19,7 @@ APPS_PATH = File.join(ROOT_PATH, 'apps')
 end
 
 # The app foundation.
-require 'airstrip'
+require 'desant'
 
 # Load all the configuration files
 Dir[File.expand_path('../config/*.rb', __FILE__)].each do |conf|
@@ -27,4 +27,4 @@ Dir[File.expand_path('../config/*.rb', __FILE__)].each do |conf|
 end
 
 # Load core and all the applications.
-Airstrip.load_apps(APPS_PATH)
+Desant.load_apps(APPS_PATH)

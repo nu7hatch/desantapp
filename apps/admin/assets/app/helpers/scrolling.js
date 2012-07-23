@@ -6,7 +6,7 @@
  * callback - A Function callback to be exectuted.
  *
  */
-Airstrip.Admin.whenScrollReached = function(cond, callback) {
+Desant.Admin.whenScrollReached = function(cond, callback) {
     $window = $(window)
     scrollTop = $window.scrollTop()
     triggerPoint = $(document).height() - $window.height() - 100;
@@ -22,7 +22,7 @@ Airstrip.Admin.whenScrollReached = function(cond, callback) {
  * callback - A Function callback to be bound with scrolling.
  *
  */
-Airstrip.Admin.bindScroll = function(callback) {
+Desant.Admin.bindScroll = function(callback) {
     $window = $(window)
     $window.unbind('scroll')
     $window.scroll(callback)
@@ -31,6 +31,6 @@ Airstrip.Admin.bindScroll = function(callback) {
 /**
  * Public: Unbinds all window's scroll callbacks.
  */
-Airstrip.Admin.unbindScroll = function() {
+Desant.Admin.unbindScroll = function() {
     $(window).unbind('scroll')
 }

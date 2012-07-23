@@ -2,9 +2,9 @@
 require File.expand_path('../boot', __FILE__)
 
 map '/' do
-  run Airstrip::Core::App
+  run Desant::Core::App
 end
 
 map '/admin' do
-  run Airstrip::Admin::App
+  run Desant::Admin::App
 end

@@ -1,4 +1,4 @@
-module Airstrip
+module Desant
   # Public: Contains helpers for various analytics and metrics 
   # systems.
   module MetricHelpers

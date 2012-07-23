@@ -14,15 +14,15 @@
  *       }
  *   })
  *
- *   _.extend(UsersListItemsView.prototype, Airstrip.Admin.Mixins.DefaultListing)
+ *   _.extend(UsersListItemsView.prototype, Desant.Admin.Mixins.DefaultListing)
  *
  */
-Airstrip.Admin.Mixins.DefaultListing = {
+Desant.Admin.Mixins.DefaultListing = {
     /**
      * Public: Initializes listing configuration.
      */
     initListing: function() {
-        this.counter = new Airstrip.Admin.ListingCounterView()
+        this.counter = new Desant.Admin.ListingCounterView()
         this.isLoading = false
         this.showEmpty = true
         this.done = false
@@ -50,7 +50,7 @@ Airstrip.Admin.Mixins.DefaultListing = {
                 }
             },
             error: function(collection, resp) {
-                Airstrip.renderFlash('error', "Couldn't load content for the page!")
+                Desant.renderFlash('error', "Couldn't load content for the page!")
             }
         }).complete(function() {
             self.isLoading = false

@@ -4,7 +4,7 @@
  *
  * This collection is paginated.
  */
-Airstrip.Admin.Referers = Backbone.Collection.extend({
+Desant.Admin.Referers = Backbone.Collection.extend({
     url: function() {
         return '/admin/api/referers?page=' + this.page
     },

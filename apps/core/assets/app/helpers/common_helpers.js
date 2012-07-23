@@ -6,7 +6,7 @@
  *
  * Returns parsed response data.
  */
-Airstrip.parseResponse = function(resp) {
+Desant.parseResponse = function(resp) {
     var data = {}
 
     try { 

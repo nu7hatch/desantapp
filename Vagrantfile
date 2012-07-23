@@ -3,11 +3,11 @@
 
 Vagrant::Config.run do |config|
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "airstrip"
+  config.vm.box = "desantapp"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = "https://dl.dropbox.com/s/693uz0riijn60ia/ubuntu-precise-server-x64-airstrip.box?dl=1"
+  config.vm.box_url = "https://dl.dropbox.com/s/693uz0riijn60ia/ubuntu-precise-server-x64-desantapp.box?dl=1"
 
   # Boot with a GUI so you can see the screen. (Default is headless)
   # config.vm.boot_mode = :gui
@@ -34,5 +34,5 @@ Vagrant::Config.run do |config|
   # Share an additional folder to the guest VM. The first argument is
   # an identifier, the second is the path on the guest to mount the
   # folder, and the third is the path on the host to the actual folder.
-  config.vm.share_folder "v-root", "/home/vagrant/airstrip", "", :nfs => true
+  config.vm.share_folder "v-root", "/home/vagrant/desant", "", :nfs => true
 end

@@ -1,4 +1,4 @@
-module Airstrip
+module Desant
   # Public: Signup service registers new email address signed up
   # from the landing page.
   class SignupService < Struct.new(:app)

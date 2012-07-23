@@ -4,7 +4,7 @@
  * Application should have global instance of this view (eg.
  * app.chromeView).
  */
-Airstrip.Admin.ChromeView = Backbone.View.extend({
+Desant.Admin.ChromeView = Backbone.View.extend({
     el: '#yield',
     template: JST['templates/admin/chrome'],
 
@@ -19,7 +19,7 @@ Airstrip.Admin.ChromeView = Backbone.View.extend({
     render: function() {
         this.$el.html(this.template())
         this.$el.addClass('logged')
-        this.navbarView = (new Airstrip.Admin.NavbarView()).render()
+        this.navbarView = (new Desant.Admin.NavbarView()).render()
         return this
     },
 

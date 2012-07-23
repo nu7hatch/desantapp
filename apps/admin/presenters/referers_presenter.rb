@@ -1,4 +1,4 @@
-module Airstrip
+module Desant
   module Admin
     # Public: Fetches paginated list of referring websites.
     class ReferersPresenter < Struct.new(:page)

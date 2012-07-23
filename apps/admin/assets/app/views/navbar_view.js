@@ -3,7 +3,7 @@
  * links with '.nav' class so they navigate to the app defined
  * actions.
  */
-Airstrip.Admin.NavbarView = Backbone.View.extend({
+Desant.Admin.NavbarView = Backbone.View.extend({
     el: '#navbar',
     template: JST['templates/admin/navbar'],
 
@@ -13,7 +13,7 @@ Airstrip.Admin.NavbarView = Backbone.View.extend({
     
     render: function() {
         this.$el.html(this.template())
-        this.spinner = new Airstrip.Admin.AjaxLoaderView()
+        this.spinner = new Desant.Admin.AjaxLoaderView()
 
         var $current = this.$('a.nav[href="' + document.location.pathname + '"]')
         $current.addClass('current')

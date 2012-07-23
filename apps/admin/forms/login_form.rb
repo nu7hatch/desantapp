@@ -1,6 +1,6 @@
 require 'digest/sha1'
 
-module Airstrip
+module Desant
   module Admin
     # Public: Admin login form service. Authenticates administrator
     # and gives access to the admin area.

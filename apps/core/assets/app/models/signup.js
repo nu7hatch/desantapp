@@ -1,7 +1,7 @@
 /**
- * Public: Reflection of the backend's Airstrip::Signup model.
+ * Public: Reflection of the backend's Desant::Signup model.
  */
-Airstrip.Signup = Backbone.Model.extend({
+Desant.Signup = Backbone.Model.extend({
     url: "/signup",
 
     toJSON: function() {

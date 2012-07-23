@@ -1,8 +1,8 @@
 require File.expand_path("../../spec_helper", __FILE__)
 
-describe Airstrip::Admin::LoginForm do
+describe Desant::Admin::LoginForm do
   subject do
-    Airstrip::Admin::LoginForm
+    Desant::Admin::LoginForm
   end
 
   before do

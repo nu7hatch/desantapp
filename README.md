@@ -1,18 +1,18 @@
-# Airstrip - Open Source Landing Pages!
+# Desant - Open Source Landing Pages!
 
-_Airstrip_ is an open source, neat landing page application. It's simple to
+_Desant_ is an open source, neat landing page application. It's simple to
 use, customize and extend to your needs. There's an awesome admin area
 too - it will give you all the information and statistics you need.
 
 ## Quick start with Vagrant
 
-There's a public Vagrant box configured to run with _Airstrip_. You can hop
+There's a public Vagrant box configured to run with _Desant_. You can hop
 into the project qucikly by running:
 
     $ gem install vagrant # if not installed yet
     $ vagrant up
     $ vagrant ssh
-    vagrant@vagrant:~$ cd airstrip
+    vagrant@vagrant:~$ cd desant
 
 Now just go and perform traditional installation steps described below.
 
@@ -22,7 +22,7 @@ First of all, install all the dependencies using _Bundler_:
 
     $ bundle
 
-_Airstrip_ uses _MySQL_ or _PostgresSQL_ as backend, so you should have
+_Desant_ uses _MySQL_ or _PostgresSQL_ as backend, so you should have
 one of these databases installed and running. First, copy `.env.sample`
 to `.env` - this file contains i.a. database configuration and admin setup:
 
@@ -74,7 +74,7 @@ rake task:
 
 ## Design introduction
 
-_Airstrip_ is not a Rails app, it's an experiment with full stack, single
+_Desant_ is not a Rails app, it's an experiment with full stack, single
 page application in _Backbone.js_ managed by _Sinatra_ backend. Here's
 the directory structure explained:
 
@@ -107,7 +107,7 @@ are routed in config.ru, with standard Rack::Router.
 The main goal of the experiment was to provide system for easy and robust
 work on _Backbone.js_ application and reusable backend elements. It's also
 aims to get rid of stupid Rails' assumptions that action = page, and models
-are used both in forms and presentations. In _Airstrip_, **models** are separated
+are used both in forms and presentations. In _Desant_, **models** are separated
 from **forms** and **presenters**. Model takes care about business logic, when
 forms handle input and presenters output. More sophisticated operations
 are handled with **services**. This design makes the stuff easy to test
@@ -117,4 +117,4 @@ and reuse across the projects.
 
 Copyright (C) 2012 by Chris Kowalik a.k.a nu7hatch
 
-_Airstrip_ is distributed under an MIT-style license. See LICENSE for details.
+_Desant_ is distributed under an MIT-style license. See LICENSE for details.

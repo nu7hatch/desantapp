@@ -4,7 +4,7 @@ require File.expand_path("../../boot", __FILE__)
 
 require 'rspec'
 require 'mocha'
-require 'airstrip'
+require 'desant'
 
 # Flush database and re-run migrations.
 require 'reusable/active_record_tasks'

@@ -4,7 +4,7 @@
  *
  * This collection is paginated.
  */
-Airstrip.Admin.Signups = Backbone.Collection.extend({
+Desant.Admin.Signups = Backbone.Collection.extend({
     url: function() {
         return '/admin/api/signups?page=' + this.page
     },

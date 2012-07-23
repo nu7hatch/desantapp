@@ -5,11 +5,11 @@ require_rel 'services'
 require_rel 'helpers'
 require_rel 'loggers'
 
-module Airstrip
+module Desant
   module Core
     class App < Reusable::Application
       # Configuration.
-      set :app_title, "Airstrip"
+      set :app_title, "Desant"
       set :root, File.dirname(__FILE__)
       
       # Custom extensions.

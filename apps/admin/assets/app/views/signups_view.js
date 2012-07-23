@@ -2,7 +2,7 @@
  * Internal: A view and handler for the button to download CSV
  * dump file with all the registered users' information.
  */
-Airstrip.Admin.SignupsDownloadCSVButtonView = Backbone.View.extend({
+Desant.Admin.SignupsDownloadCSVButtonView = Backbone.View.extend({
     template: JST['templates/admin/download_csv_button'],
 
     events: {
@@ -24,24 +24,24 @@ Airstrip.Admin.SignupsDownloadCSVButtonView = Backbone.View.extend({
  * Internal: A view for the registered users list items. It's derived
  * from the default listing.
  */
-Airstrip.Admin.SignupsListItemsView = Backbone.View.extend({
+Desant.Admin.SignupsListItemsView = Backbone.View.extend({
     el: '#signups tbody',
     template: JST['templates/admin/signup_items'],
 
     initialize: function() {
-        this.models = new Airstrip.Admin.Signups()
+        this.models = new Desant.Admin.Signups()
         this.initListing()
     },
 })
 
-_.extend(Airstrip.Admin.SignupsListItemsView.prototype,
-         Airstrip.Admin.Mixins.DefaultListing)
+_.extend(Desant.Admin.SignupsListItemsView.prototype,
+         Desant.Admin.Mixins.DefaultListing)
 
 /**
  * Internal: A view for the registered users list. It's an
  * infinitely scrolled listing.
  */
-Airstrip.Admin.SignupsListView = Backbone.View.extend({
+Desant.Admin.SignupsListView = Backbone.View.extend({
     el: '#content',
     template: JST['templates/admin/listing'],
 
@@ -57,15 +57,15 @@ Airstrip.Admin.SignupsListView = Backbone.View.extend({
             columns: ['#', 'E-mail', 'IP address', 'Registered at'],
         }))
 
-        this.downloadCSVButton = new Airstrip.Admin.SignupsDownloadCSVButtonView({
+        this.downloadCSVButton = new Desant.Admin.SignupsDownloadCSVButtonView({
             el: this.$('.action_buttons')
         }).render()
         
-        this.items = new Airstrip.Admin.SignupsListItemsView().render()
+        this.items = new Desant.Admin.SignupsListItemsView().render()
         
         return this
     },
 })
 
-_.extend(Airstrip.Admin.SignupsListView.prototype,
-         Airstrip.Admin.Mixins.InifiniteScrollListing)
+_.extend(Desant.Admin.SignupsListView.prototype,
+         Desant.Admin.Mixins.InifiniteScrollListing)

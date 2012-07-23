@@ -1,13 +1,13 @@
 require File.expand_path("../../spec_helper", __FILE__)
 
-describe Airstrip::Admin::LatestSignupsPresenter do
+describe Desant::Admin::LatestSignupsPresenter do
   subject do
-    Airstrip::Admin::LatestSignupsPresenter
+    Desant::Admin::LatestSignupsPresenter
   end
 
   before do
-    Airstrip::Signup.destroy_all
-    2.times { Airstrip::Signup.make! }
+    Desant::Signup.destroy_all
+    2.times { Desant::Signup.make! }
   end
 
   it "loads paginated list of latest signups" do

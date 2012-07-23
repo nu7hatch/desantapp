@@ -2,7 +2,7 @@
  * Public; Admin sessions logic. App should have one global
  * instance of this model (eg. app.session).
  */
-Airstrip.Admin.Session = Backbone.Model.extend({
+Desant.Admin.Session = Backbone.Model.extend({
     url: '/admin/session',
     
     defaults: {

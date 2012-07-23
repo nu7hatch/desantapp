@@ -1,2 +1,2 @@
 # List of the applications to be loaded.
-Airstrip.apps += %w(core admin)
+Desant.apps += %w(core admin)

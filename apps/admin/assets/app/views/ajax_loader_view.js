@@ -3,7 +3,7 @@
  * to all the ajax start/stop events, so you don't have to worry
  * about it at all.
  */
-Airstrip.Admin.AjaxLoaderView = Backbone.View.extend({
+Desant.Admin.AjaxLoaderView = Backbone.View.extend({
     el: '#ajax_loader',
 
     events: {

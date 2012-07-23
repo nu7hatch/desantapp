@@ -2,7 +2,7 @@
  * Public: This view renders world map graphs with selected user
  * locations grouped by nearby cities or countries. 
  */
-Airstrip.Admin.LocationsMapView = Backbone.View.extend({
+Desant.Admin.LocationsMapView = Backbone.View.extend({
     el: '.extras',
     template: '<div id="map"><svg></svg></div>',
 
@@ -57,7 +57,7 @@ Airstrip.Admin.LocationsMapView = Backbone.View.extend({
     load: function(group) {
         var self = this
         
-        mercatorData = new Airstrip.Admin.MercatorData({ group: group })
+        mercatorData = new Desant.Admin.MercatorData({ group: group })
         mercatorData.fetch({
             success: function(collection, resp) {
                 if (group == 'countries') {
@@ -67,7 +67,7 @@ Airstrip.Admin.LocationsMapView = Backbone.View.extend({
                 }
             },
             error: function(collection, resp) {
-                Airstrip.renderFlash('error', "Something went wrong while loading map!")
+                Desant.renderFlash('error', "Something went wrong while loading map!")
             }
         })
 

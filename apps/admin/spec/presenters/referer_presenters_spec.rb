@@ -1,14 +1,14 @@
 require File.expand_path("../../spec_helper", __FILE__)
 
-describe Airstrip::Admin::ReferersPresenter do
+describe Desant::Admin::ReferersPresenter do
   subject do
-    Airstrip::Admin::ReferersPresenter
+    Desant::Admin::ReferersPresenter
   end
 
   before do
-    Airstrip::Signup.destroy_all
-    2.times { Airstrip::Signup.make!(:referer => 'http://google.com') }
-    Airstrip::Signup.make!(:referer => nil)
+    Desant::Signup.destroy_all
+    2.times { Desant::Signup.make!(:referer => 'http://google.com') }
+    Desant::Signup.make!(:referer => nil)
   end
 
   it "loads paginated list of refering websites with number of brought users" do

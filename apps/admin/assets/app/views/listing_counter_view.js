@@ -2,7 +2,7 @@
  * Public: This is a view for listing counters. It shows a number
  * of the items displayed compared to total count of the listing.
  */
-Airstrip.Admin.ListingCounterView = Backbone.View.extend({
+Desant.Admin.ListingCounterView = Backbone.View.extend({
     el: '#counter',
     template: JST['templates/admin/listing_counter'],
 

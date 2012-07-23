@@ -11,11 +11,11 @@
 //
 //= require ./app
 
-window.Airstrip = {
+window.Desant = {
     Mixins: {},
 }
 
 $(function() {
-    Airstrip.router = new Airstrip.Router();
+    Desant.router = new Desant.Router();
     Backbone.history.start({ pushState: true });
 })

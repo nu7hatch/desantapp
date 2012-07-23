@@ -1,4 +1,4 @@
-Airstrip.Admin.Router = Backbone.Router.extend({
+Desant.Admin.Router = Backbone.Router.extend({
     routes: {
         'admin': 'home',
         'admin/': 'home',
@@ -10,32 +10,32 @@ Airstrip.Admin.Router = Backbone.Router.extend({
     },
 
     initialize: function() {
-        this.session = new Airstrip.Admin.Session();
+        this.session = new Desant.Admin.Session();
     },
 
     home: function() {
-        Airstrip.Admin.chromeView.makeSureRender()
+        Desant.Admin.chromeView.makeSureRender()
         this.navigate('admin/signups', true)
     },
     
     login: function() {
-        Airstrip.Admin.loginFormView = new Airstrip.Admin.LoginFormView()
-        Airstrip.Admin.loginFormView.render()
+        Desant.Admin.loginFormView = new Desant.Admin.LoginFormView()
+        Desant.Admin.loginFormView.render()
     },
 
     signupsList: function() {
-        (new Airstrip.Admin.SignupsListView()).render()
+        (new Desant.Admin.SignupsListView()).render()
     },
 
     citiesList: function() {
-        (new Airstrip.Admin.LocationsListView({ group: 'cities' })).render()
+        (new Desant.Admin.LocationsListView({ group: 'cities' })).render()
     },
 
     countriesList: function() {
-        (new Airstrip.Admin.LocationsListView({ group: 'countries' })).render()
+        (new Desant.Admin.LocationsListView({ group: 'countries' })).render()
     },
 
     referersList: function() {
-        (new Airstrip.Admin.ReferersListView()).render()
+        (new Desant.Admin.ReferersListView()).render()
     },
 })

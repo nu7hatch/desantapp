@@ -1,4 +1,4 @@
-module Airstrip
+module Desant
   module Admin
     # Public: Fetches paginated list of latest signup entries.
     class LatestSignupsPresenter < Struct.new(:page)

@@ -1,14 +1,14 @@
 require File.expand_path("../../spec_helper", __FILE__)
 
-describe Airstrip::Admin::CitiesPresenter do
+describe Desant::Admin::CitiesPresenter do
   subject do
-    Airstrip::Admin::CitiesPresenter
+    Desant::Admin::CitiesPresenter
   end
 
   before do
-    Airstrip::Signup.destroy_all
-    2.times { Airstrip::Signup.make!(:city => "Montevideo", :country => "Uruguay") }
-    Airstrip::Signup.make!(:city => nil, :country => nil)
+    Desant::Signup.destroy_all
+    2.times { Desant::Signup.make!(:city => "Montevideo", :country => "Uruguay") }
+    Desant::Signup.make!(:city => nil, :country => nil)
   end
 
   it "loads paginated list of refering websites with number of brought users" do

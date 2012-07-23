@@ -5,11 +5,11 @@ require_rel 'presenters'
 require_rel 'forms'
 require_rel 'loggers'
 
-module Airstrip
+module Desant
   module Admin
     class App < Reusable::Application
       # Configuration
-      set :app_title, "Airstrip Admin"
+      set :app_title, "Desant Admin"
       set :root, File.dirname(__FILE__)
 
       # Custom extensions.

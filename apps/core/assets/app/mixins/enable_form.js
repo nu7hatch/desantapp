@@ -4,7 +4,7 @@
  * In order to use it, extended object must have a this.submitButton
  * field with submit button view (extended by Mixins.EnableField).
  */
-Airstrip.Mixins.EnableForm = {
+Desant.Mixins.EnableForm = {
     /**
      * Public: Enables this form.
      */
@@ -28,7 +28,7 @@ Airstrip.Mixins.EnableForm = {
  * Public: Provides enabling/disabling for form fields. Mostly
  * used for buttons.
  */
-Airstrip.Mixins.EnableField = {
+Desant.Mixins.EnableField = {
     /**
      * Public: Enables this field.
      */

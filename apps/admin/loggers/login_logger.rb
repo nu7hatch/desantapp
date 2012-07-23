@@ -1,4 +1,4 @@
-module Airstrip
+module Desant
   module Admin
     # Internal: A logger bound to `.admin_login` notifications.
     class LoginLogger < ActiveSupport::LogSubscriber
@@ -21,4 +21,4 @@ module Airstrip
   end
 end
 
-Airstrip::Admin::LoginLogger.attach_to :admin_login
+Desant::Admin::LoginLogger.attach_to :admin_login

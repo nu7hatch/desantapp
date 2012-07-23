@@ -1,6 +1,6 @@
 require 'reusable/helpers/email_helpers'
 
-module Airstrip
+module Desant
   # Internal: A logger bound to `*.signup` notifications.
   class SignupLogger < ActiveSupport::LogSubscriber
     include Reusable::EmailHelpers
@@ -22,4 +22,4 @@ module Airstrip
   end
 end
 
-Airstrip::SignupLogger.attach_to :signup
+Desant::SignupLogger.attach_to :signup

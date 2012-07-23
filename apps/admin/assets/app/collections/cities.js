@@ -4,7 +4,7 @@
  *
  * This collection is paginated.
  */
-Airstrip.Admin.Cities = Backbone.Collection.extend({
+Desant.Admin.Cities = Backbone.Collection.extend({
     url: function() {
         return '/admin/api/cities?page=' + this.page
     },

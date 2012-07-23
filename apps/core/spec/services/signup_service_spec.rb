@@ -1,8 +1,8 @@
 require File.expand_path("../../spec_helper", __FILE__)
 
-describe Airstrip::SignupService do
+describe Desant::SignupService do
   subject do
-    Airstrip::SignupService
+    Desant::SignupService
   end
 
   context "when given email address is valid and not duplicated" do
@@ -17,7 +17,7 @@ describe Airstrip::SignupService do
     it "creates new signup entry" do
       res = subject.new(app).call
       res.should == { "email" => "chris@nu7hat.ch" }
-      Airstrip::Signup.find_by_email("chris@nu7hat.ch").should be
+      Desant::Signup.find_by_email("chris@nu7hat.ch").should be
     end
   end
 

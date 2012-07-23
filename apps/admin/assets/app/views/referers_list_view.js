@@ -2,24 +2,24 @@
  * Internal: A view for the referers list items. It's derived from
  * the default listing.
  */
-Airstrip.Admin.ReferersListItemsView = Backbone.View.extend({
+Desant.Admin.ReferersListItemsView = Backbone.View.extend({
     el: '#referers tbody',
     template: JST['templates/admin/referer_items'],
 
     initialize: function() {
-        this.models = new Airstrip.Admin.Referers()
+        this.models = new Desant.Admin.Referers()
         this.initListing()
     },
 })
 
-_.extend(Airstrip.Admin.ReferersListItemsView.prototype,
-         Airstrip.Admin.Mixins.DefaultListing)
+_.extend(Desant.Admin.ReferersListItemsView.prototype,
+         Desant.Admin.Mixins.DefaultListing)
 
 /**
  * Internal: A view for the refering websites list. It's an
  * infinitely scrolled listing.
  */
-Airstrip.Admin.ReferersListView = Backbone.View.extend({
+Desant.Admin.ReferersListView = Backbone.View.extend({
     el: '#content',
     template: JST['templates/admin/listing'],
 
@@ -35,11 +35,11 @@ Airstrip.Admin.ReferersListView = Backbone.View.extend({
             columns: ['#', "Referer's URL", 'Brought users'],
         }))
 
-        this.items = new Airstrip.Admin.ReferersListItemsView().render()
+        this.items = new Desant.Admin.ReferersListItemsView().render()
 
         return this
     },
 })
 
-_.extend(Airstrip.Admin.ReferersListView.prototype,
-         Airstrip.Admin.Mixins.InifiniteScrollListing)
+_.extend(Desant.Admin.ReferersListView.prototype,
+         Desant.Admin.Mixins.InifiniteScrollListing)

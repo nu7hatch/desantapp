@@ -2,42 +2,42 @@
  * Internal: A view for the cities list items. It's derived from
  * the default listing.
  */
-Airstrip.Admin.CitiesListItemsView = Backbone.View.extend({
+Desant.Admin.CitiesListItemsView = Backbone.View.extend({
     el: '#cities tbody',
     template: JST['templates/admin/city_items'],
 
     initialize: function() {
-        this.models = new Airstrip.Admin.Cities()
+        this.models = new Desant.Admin.Cities()
         this.initListing()
     },
 })
 
-_.extend(Airstrip.Admin.CitiesListItemsView.prototype,
-         Airstrip.Admin.Mixins.DefaultListing)
+_.extend(Desant.Admin.CitiesListItemsView.prototype,
+         Desant.Admin.Mixins.DefaultListing)
 
 /**
  * Internal: A view for the countries list items. It's derived from
  * the default listing.
  */
-Airstrip.Admin.CountriesListItemsView = Backbone.View.extend({
+Desant.Admin.CountriesListItemsView = Backbone.View.extend({
     el: '#countries tbody',
     template: JST['templates/admin/country_items'],
 
     initialize: function() {
-        this.models = new Airstrip.Admin.Countries()
+        this.models = new Desant.Admin.Countries()
         this.initListing()
     },
 })
 
-_.extend(Airstrip.Admin.CountriesListItemsView.prototype,
-         Airstrip.Admin.Mixins.DefaultListing)
+_.extend(Desant.Admin.CountriesListItemsView.prototype,
+         Desant.Admin.Mixins.DefaultListing)
 
 /**
  * Internal: A shared view for the locations list. It can either
  * display list of cities or countries, dependent on the 'group'
  * option specified. It's an infinitely scrolled listing.
  */
-Airstrip.Admin.LocationsListView = Backbone.View.extend({
+Desant.Admin.LocationsListView = Backbone.View.extend({
     el: '#content',
     template: JST['templates/admin/listing'],
     subnav_template: JST['templates/admin/locations_subnav'],
@@ -87,8 +87,8 @@ Airstrip.Admin.LocationsListView = Backbone.View.extend({
 
         this.navigate('/admin/locations/cities')
         
-        this.items = new Airstrip.Admin.CitiesListItemsView().render()
-        this.map = new Airstrip.Admin.LocationsMapView({ group: 'cities' }).render()
+        this.items = new Desant.Admin.CitiesListItemsView().render()
+        this.map = new Desant.Admin.LocationsMapView({ group: 'cities' }).render()
 
         return this
     },
@@ -106,8 +106,8 @@ Airstrip.Admin.LocationsListView = Backbone.View.extend({
 
         this.navigate('/admin/locations/countries')
 
-        this.items = new Airstrip.Admin.CountriesListItemsView().render()
-        this.map = new Airstrip.Admin.LocationsMapView({ group: 'countries' }).render()
+        this.items = new Desant.Admin.CountriesListItemsView().render()
+        this.map = new Desant.Admin.LocationsMapView({ group: 'countries' }).render()
 
         return this
     },
@@ -132,5 +132,5 @@ Airstrip.Admin.LocationsListView = Backbone.View.extend({
     },
 })
 
-_.extend(Airstrip.Admin.LocationsListView.prototype,
-         Airstrip.Admin.Mixins.InifiniteScrollListing)
+_.extend(Desant.Admin.LocationsListView.prototype,
+         Desant.Admin.Mixins.InifiniteScrollListing)

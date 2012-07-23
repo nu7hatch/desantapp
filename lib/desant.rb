@@ -25,8 +25,8 @@ require 'reusable/actions/test_action'
 require 'reusable/apps_foundation'
 require 'reusable/application'
 
-require 'airstrip/version'
+require 'desant/version'
 
-module Airstrip
+module Desant
   extend Reusable::AppsFoundation
 end

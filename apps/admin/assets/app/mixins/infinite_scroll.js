@@ -11,15 +11,15 @@
  *       }
  *   })
  *
- *   _.extend(UsersListView.prototype, Airstrip.Admin.Mixins.InifiniteScrollListing)
+ *   _.extend(UsersListView.prototype, Desant.Admin.Mixins.InifiniteScrollListing)
  */
-Airstrip.Admin.Mixins.InifiniteScrollListing = {
+Desant.Admin.Mixins.InifiniteScrollListing = {
     /**
      * Public: Initializez infinite scrolling configuration.
      */
     initScroll: function() {
         _.bindAll(this, 'checkScroll')
-        Airstrip.Admin.bindScroll(this.checkScroll)        
+        Desant.Admin.bindScroll(this.checkScroll)        
     },
 
     /**
@@ -32,7 +32,7 @@ Airstrip.Admin.Mixins.InifiniteScrollListing = {
         var self = this
         condition = !this.items.isLoading && !this.items.done
         
-        Airstrip.Admin.whenScrollReached(condition, function() {
+        Desant.Admin.whenScrollReached(condition, function() {
             self.items.render()
         })
     }

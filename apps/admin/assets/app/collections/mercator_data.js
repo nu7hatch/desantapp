@@ -2,7 +2,7 @@
  * Public: A collection of the data used to display markers on
  * the locations (cities or countries) graph.
  */
-Airstrip.Admin.MercatorData = Backbone.Collection.extend({
+Desant.Admin.MercatorData = Backbone.Collection.extend({
     url: function() {
         return "/admin/api/" + this.options.group + "/map"
     },

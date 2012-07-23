@@ -6,8 +6,8 @@
  * message - A String message to be displayed in this flash.
  *
  */
-Airstrip.renderFlash = function(type, message) {
-    flash = new Airstrip.Flash({ type: type, message: message })
+Desant.renderFlash = function(type, message) {
+    flash = new Desant.Flash({ type: type, message: message })
     flash.render()
 }
 
@@ -15,7 +15,7 @@ Airstrip.renderFlash = function(type, message) {
  * Public: A view for the flash messages. The 'div#flash' DOM
  * object must be defined in order to make it work.
  */
-Airstrip.Flash = Backbone.View.extend({
+Desant.Flash = Backbone.View.extend({
     el: '#flash',
     template: JST["templates/flash"],
     
