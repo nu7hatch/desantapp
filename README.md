@@ -16,7 +16,7 @@ too - it will give you all the information and statistics you need.
 ## Demo
 
 You can check online demo of the admin on [**here**](http://demo.desantapp.com/admin).
-Login as `root` with password `pass`.
+Login as `admin` with password `pass`.
 
 ## Quick start with Vagrant
 
