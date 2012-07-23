@@ -10,6 +10,8 @@ Airstrip.Admin.LocationsMapView = Backbone.View.extend({
         this.$el.html(this.template)
         this.$map = this.$('#map')
 
+        $('a.nav.locations').addClass('current')
+        
         this.buildGraph()
             .load(this.options.group)
 
@@ -20,7 +22,7 @@ Airstrip.Admin.LocationsMapView = Backbone.View.extend({
      * Internal: Initializes graph settings and returns itself.
      */
     buildGraph: function() {
-        this.margin = { top: 0, right: 0, bottom: 0, left: 0 }
+        this.margin = { top: 120, right: 0, bottom: 0, left: 0 }
         this.width  = 800 - this.margin.left - this.margin.right
         this.height = this.$map.height() - this.margin.top - this.margin.bottom
         
@@ -90,7 +92,7 @@ Airstrip.Admin.LocationsMapView = Backbone.View.extend({
                 .attr("class", "feature")
                 .attr("d", self.path)
                 .style("fill", function(d) {
-                    return self.scaleColor(data[d.properties.name], total, 2, 1.1, 1.5)
+                    return self.scaleColor(data[d.properties.name], total, 1.4, 1.1, 1.6)
                 })
                 .on("mouseover", function() {
                     d3.select(this).attr("class", "feature hover")
@@ -132,7 +134,7 @@ Airstrip.Admin.LocationsMapView = Backbone.View.extend({
             })
 
             circleRadius = function(d) {
-                return 3 + ((d.users_count / total) * 17)
+                return 3 + ((d.users_count / total) * 15)
             }
             
             self.dots.data(markers)
@@ -186,7 +188,7 @@ Airstrip.Admin.LocationsMapView = Backbone.View.extend({
      */
     scaleColor: function(val, total, r, g, b) {
         if (val) {
-            scale = 255 - 255 * (val / total)
+            scale = 255 - 100 * (val / total)
             return d3.rgb(scale / r, scale / g, scale / b)
         }
     },

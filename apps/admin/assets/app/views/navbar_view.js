@@ -14,13 +14,20 @@ Airstrip.Admin.NavbarView = Backbone.View.extend({
     render: function() {
         this.$el.html(this.template())
         this.spinner = new Airstrip.Admin.AjaxLoaderView()
+
+        var $current = this.$('a.nav[href="' + document.location.pathname + '"]')
+        $current.addClass('current')
         
         return this
     },
 
     clickLink: function(e) {
         e.preventDefault()
+        this.$('a.nav').removeClass('current')
+
         var $link = $(e.target)
+        $link.addClass('current')
+
         app.navigate($link.attr('href'), true)
     },
 })

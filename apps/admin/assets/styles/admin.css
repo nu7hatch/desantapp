@@ -15,7 +15,7 @@ body,
 button,
 input,
 select,
-textarea {
+textarea, {
   font-family: 'Droir Sans', sans-serif;
   color: #444;
 }
@@ -37,22 +37,24 @@ a:hover, a:active {
 .vessel {
    width: 800px;
    margin: 0 auto;
+   font-family: 'Droid Sans', sans-serif;
 }
 .login_form_vessel {
-   width: 420px;
-   margin: 60px auto 0 auto;
+   width: 460px;
+   margin: 30px auto 0 auto;
+   position: relative;
 }
 .login_form_wrapper {
    background: #3322BB url("/admin/img/bright_squares.png") top left repeat;
-   padding: 2em 2em;
+   padding: 2em 2em 2em 2em;
    box-shadow: inset 0 0 2px rgba(0,0,0,.7);
 }
 .login_form_wrapper h2 {
    font-family: 'Bevan', serif;
-   font-size: 1.8em;
+   font-size: 1.6em;
    font-weight: normal;
    color: #FFF;
-   margin: 0 0 1em 0;
+   margin: 0 0 .5em 0;
    text-align: center;
    text-shadow: 2px 2px 1px rgba(0,0,0,.6);
 }
@@ -185,6 +187,18 @@ form.login .buttons #ajax_loader {
    margin-left: -25px;
    margin-right: -25px;
 }
+.big-logo {
+   margin-top: 30px;
+   position: relative;
+   z-index: 2000;
+}
+.big-logo h1 {
+   text-indent: -9999px;
+   margin: 0 0 -20px 0;
+   padding: 0;
+   background: url('/admin/img/logo2.png') bottom center no-repeat;
+   height: 150px;
+}
 .logo {
    float: left;
    position: relative;
@@ -199,6 +213,10 @@ form.login .buttons #ajax_loader {
    font-weight: normal;
    color: rgba(0,0,0,.55);
    text-shadow: 0 1px 0 rgba(255,255,255,.25);
+   text-indent: -9999px;
+   height: 32px;
+   width: 120px;
+   background: url('/admin/img/logo.png') bottom left no-repeat;
 }
 #navbar #ajax_loader {
    position: absolute;
@@ -227,7 +245,7 @@ form.login .buttons #ajax_loader {
    font-size: .8em;
    display: block;
    padding: 1em .7em .9em .7em;
-   color: #DCF;
+   color: #BBE;
    text-shadow: 1px 1px 0px rgba(0,0,0,.4);
    outline: none;
    margin: 0 1px 0 1px;
@@ -238,6 +256,9 @@ form.login .buttons #ajax_loader {
    position: relative;
    z-index: 101;
    background: rgba(30,10,50,.1);
+   color: #FFF;
+}
+#navbar nav a.current {
    color: #FFF;
 }
 #navbar nav a:active {
@@ -387,7 +408,8 @@ table.listing tbody tr.empty_screen td {
    border-radius: 3px;
    padding: 5px 25px 5px 10px;
    position: relative;
-   font-family: Bevan;
+   font-family: 'Droid Sans', sans-serif;
+   font-weight: bold;
 }
 #content .subnav li a:hover {
    text-decoration: none;
@@ -455,7 +477,7 @@ table.listing tbody tr.empty_screen td {
    padding: 0 0 0 1px;
    text-align: left;
    margin-top: -6px;
-   font-family: Helvetica, Arial, sans-serif;
+   font-family: 'Droid Sans', sans-serif;
 }
 #content .action_buttons .button strong {
    display: block;
