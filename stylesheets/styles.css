@@ -5,8 +5,9 @@ body {
    color: #444;
    background-image: url('../images/bg.png');
    background-repeat: no-repeat;
-   background-position: top center;
+   background-position: center center;
    background-attachment: fixed;
+   background-size: 2000px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -23,7 +24,12 @@ h1, h2, h3 {
 }
 
 h1 {
-   font-size:28px;
+   font-size: 28px;
+   text-indent: -9999px;
+   background: #000 url('../images/logo.png') bottom center no-repeat;
+   height: 180px;
+   margin-top: -200px;
+   padding-top: 200px;
 }
 
 h2 {
@@ -119,43 +125,36 @@ header {
    width:270px;
    float:left;
    position:fixed;
+   margin-top: -50px;
 }
 
 header ul {
    list-style:none;
-   height:40px;
+   height:38px;
    
    padding:0;
    
-   background: #eee;
-   background: -moz-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
-   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(100%,#dddddd));
-   background: -webkit-linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
-   background: -o-linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
-   background: -ms-linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
-   background: linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
-   
-   border-radius:5px;
-   border:1px solid #d2d2d2;
-   box-shadow:inset #fff 0 1px 0, inset rgba(0,0,0,0.03) 0 -1px 0;
    width:270px;
+   margin-top: -19px;
 }
 
 header li {
-   width:89px;
+   width:90px;
    float:left;
-   border-right:1px solid #d2d2d2;
-   height:40px;
+   margin-left: 0;
+   height:32px;
 }
 
 header ul a {
+   background: #000;
    line-height:1;
    font-size:11px;
-   color:#999;
+   color:#FFF;
    display:block;
    text-align:center;
    padding-top:6px;
-   height:40px;
+   height:32px;
+   text-decoration: none;
 }
 
 strong {
@@ -164,23 +163,31 @@ strong {
 }
 
 header ul li + li {
-   width:88px;
-   border-left:1px solid #fff;
+   width:89px;
+   margin-left: 1px;
 }
 
 header ul li + li + li {
-   border-right:none;
    width:89px;
+   margin-left: 1px;
 }
 
 header ul a strong {
    font-size:14px;
    display:block;
-   color:#222;
+   color:#888;
+}
+
+header ul a:hover {
+   background: #3322BB;
+}
+
+header ul a:hover strong {
+   color: #FFF;
 }
 
 section {
-   width:500px;
+   width:520px;
    float:right;
    font-family: 'Droid Sans', sans-serif;
    padding-bottom:50px;
@@ -211,7 +218,7 @@ section {
 }
 
 .intro {
-   background-color: rgba(55,34,187,.7);
+   background-color: rgba(55,44,197,.8);
    margin-bottom: 1em;
 }
 
@@ -251,10 +258,30 @@ footer {
    width:270px;
    float:left;
    position:fixed;
-   bottom:50px;
+   bottom:0px;
+   font-size: .8em;
+   background: rgba(0,0,0,.3);
+}
+footer p {
+   padding: 1em;
+}
+footer a {
+   color: #222;
+}
+
+@media print, screen and (max-width: 1440px) {
+
+   body {
+      background-size: 1500px;
+   }
+
 }
 
 @media print, screen and (max-width: 960px) {
+
+   body {
+      background-size: 1280px;
+   }
    
    div.wrapper {
       width:auto;
@@ -268,14 +295,16 @@ footer {
    }
    
    header {
-      padding-right:320px;
+      top: -50px;
+      margin-bottom: -50px;
+      position: relative;
    }
    
    section {
-      border:1px solid #e5e5e5;
+      border:1px solid #AAA;
       border-width:1px 0;
-      padding:20px 0;
-      margin:0 0 20px;
+      padding:1em 0;
+      margin:0 0 1em;
    }
    
    header a small {
@@ -284,22 +313,40 @@ footer {
    
    header ul {
       position:absolute;
-      right:50px;
-      top:52px;
+      left:1em;
+      top:225px;
+   }
+   header ul li {
+      float: none;
+      margin-bottom: 7px;
    }
 }
 
 @media print, screen and (max-width: 720px) {
    body {
       word-wrap:break-word;
+      background-size: 1024px;
    }
    
    header {
       padding:0;
+      margin-bottom: 85px;
    }
-   
+
+   header ul li, header ul li + li, header ul li + li + li {
+      width: 100%;
+      margin: 0;
+      margin-bottom: 7px;
+      float: none;
+      display: block
+   }
+   header ul {
+      width: 100%;
+      position: absolute;
+      margin-left: -16px;
+      margin-top: 156px;
+   }
    header ul, header p.view {
-      position:static;
    }
    
    pre, code {
@@ -310,6 +357,11 @@ footer {
 @media print, screen and (max-width: 480px) {
    body {
       padding:15px;
+   }
+
+   header {
+      margin-bottom: -15px;
+      top: -15px;
    }
    
    header ul {
