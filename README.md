@@ -123,6 +123,10 @@ forms handle input and presenters output. More sophisticated operations
 are handled with **services**. This design makes the stuff easy to test
 and reuse across the projects.
 
+### Coding conventions
+
+TODO...
+
 ## Screenshots
 
 ![Registered users](https://dl.dropbox.com/s/ss5sbn8e4hh834i/5.png)
