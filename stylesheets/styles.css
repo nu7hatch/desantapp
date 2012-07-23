@@ -3,7 +3,7 @@ body {
    font-size: 16px;
    font-family: 'Droid Sans', sans-serif;
    color: #444;
-   background-image: url('/images/bg.png');
+   background-image: url('../images/bg.png');
    background-repeat: no-repeat;
    background-position: top center;
    background-attachment: fixed;
@@ -188,7 +188,7 @@ section {
 
 .vessel {
    padding: 1em;
-   background-image: url('/images/crosses.png');
+   background-image: url('../images/crosses.png');
    background-repeat: repeat;
    color: #EEE;
    text-shadow: 1px 1px 0 rgba(0,0,0,.8);
@@ -199,7 +199,7 @@ section {
 }
 
 .expl {
-   background: rgba(255,255,255,.4) url('/images/crossesinv.png') repeat;
+   background: rgba(255,255,255,.4) url('../images/crossesinv.png') repeat;
    color: #333;
    text-shadow: none;
    border: none;
