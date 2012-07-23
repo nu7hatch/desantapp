@@ -44,8 +44,9 @@ password hash for your password:
 Copy generated hash and assign it to `ADMIN_PASSWORD_HASH` in `.env` file,
 edit database configuration and other settings.
 
-Last thing to do is to run migrations:
+Last thing to do is to run create databases and run migrations: 
 
+    $ foreman run rake db:create
     $ foreman run rake db:migrate
 
 As you can se, we must use `foreman run` command from now on - it's because

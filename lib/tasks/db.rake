@@ -6,6 +6,46 @@ namespace :db do
     $migrations_dir = File.join($db_dir, 'migrate')
   end
 
+  task :get_db_name do
+    $db_name = ENV['DATABASE_NAME'] || ENV['DATABASE']
+
+    if $db_name.to_s.empty?
+      puts "Invalid database name!"
+      exit(1)
+    end
+  end
+
+  task :raw_connection do
+    require 'active_record'
+
+    ActiveRecord::Base.establish_connection({ 
+      :adapter  => ENV['DATABASE_ADAPTER'],
+      :host     => ENV['DATABASE_HOST'],
+      :username => ENV['DATABASE_USER'],
+      :password => ENV['DATABASE_PASS']
+    })
+  end
+
+  desc "Create project databases"
+  task :create => [:raw_connection, :get_db_name] do
+    options = {:charset => 'utf8', :collation => 'utf8_unicode_ci'}
+
+    ['', '_test', '_development'].each do |suffix|
+      begin
+        ActiveRecord::Base.connection.create_database $db_name + suffix, options
+      rescue => e
+        raise e unless e.to_s =~ /database exists/
+      end
+    end
+  end
+
+  desc "Drop project databases"
+  task :drop => [:raw_connection, :get_db_name] do
+    ['', '_test', '_development'].each do |suffix|
+      ActiveRecord::Base.connection.drop_database($db_name + suffix)
+    end
+  end
+
   desc "Truncate whole the database"
   task :truncate => [:environment, :paths] do
     Reusable::ActiveRecordTasks.truncate
