@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Desant - Open source landing pages</title>
+
+    <link href="http://fonts.googleapis.com/css?family=Bevan|Ubuntu+Mono|Signika+Negative:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <a href="#top" name="top" id="top"></a>
+      
+      <header role="banner">
+        <div class="vessel">
+          <h1 class="logo"><a href="/"><img src="/images/logo.png" alt="Desant"></a></h1>
+
+          <nav class="menu nomobile">
+            <ul>
+              <li class="current"><a href="#top">Top</a></li>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#demo">Demo</a></li>
+              <li><a href="#quickstart">Quick start</a></li>
+              <li><a href="https://github.com/nu7hatch/desantapp/tags">Download</a></li>
+              <li><a href="https://github.com/nu7hatch/desantapp">Code</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="shadow">&nbsp;</div>
+      </header>
+
+      <section role="main">        
+        <div class="intro">
+          <div class=" vessel">
+            <p>
+              Desant is an <strong>open source</strong> landing page management application, simple to
+              use and customize, with really <strong>neat admin area</strong>!
+            </p>
+            <div class="big">
+              <img src="/images/big.png" alt="Desant Admin">
+            </div>
+          </div>
+        </div>
+
+        <div class="expl absurdity">
+          <div class="vessel">
+            <blockquote>
+              <strong>Desant</strong> /dɛsɑːnt/ is a Polish word for military landing operations aimed 
+              at a bringing the landing force usually via landing craft to a shore or to 
+              land with the purpose of power projection ashore by forces coming usually 
+              from ships and also aircraft and able to fight.
+            </blockquote>
+          </div>
+        </div>
+        
+        <div class="screens">
+          <div class="vessel">
+            <a href="#features" name="features" id="features"></a>
+            <h2>Check all the features, you gonna <strong>love it</strong>! <i class="icon icon-heart"></i></h2>
+            <ul>
+              <li>
+                <div>
+                  <img src="/images/screen-1.png" alt="Registered users" onmouseover="this.src='/images/screen-1h.png'" onmouseout="this.src='/images/screen-1.png'">
+                  <h3><i class="icon icon-user"></i> Signups tracking</h3>
+                  <p>
+                    Track all the users registered via your landing page together
+                    with statistics and metrics.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <img src="/images/screen-3.png" alt="Data exporting" onmouseover="this.src='/images/screen-3h.png'" onmouseout="this.src='/images/screen-3.png'">
+                  <h3><i class="icon icon-download"></i> Data exporting</h3>
+                  <p>
+                    Export collected data quickly and with no fuss! 
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <img src="/images/screen-2.png" alt="Locations" onmouseover="this.src='/images/screen-2h.png'" onmouseout="this.src='/images/screen-2.png'">
+                  <h3><i class="icon icon-map-marker"></i> User locations</h3>
+                  <p>
+                    Check easily from which part of the world subscribed users
+                    are coming.
+                  </p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="clearfix"></div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <a href="#demo" id="demo" name="demo"></a>
+          <div class="vessel">
+            <div class="inside">
+              <a href="http://demo.desantapp.com/admin" class="button">Check admin demo!</a>
+            </div>
+          </div>
+          <div class="credentials absurdity">
+            <div class="vessel">
+              <p>
+                You can login to demo admin area as <code><strong>admin</strong></code> with
+                password <code><strong>pass</strong></code>. For security reasons (i.a. protecting
+                user's email addresses) frontend is disabled in demo application. All the data
+                in the admin area is auto-generated.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="getstarted nomobile">
+          <div class="sep">
+          <div class="vessel">
+            <a href="#quickstart" id="quickstart" name="quickstart"></a>
+            <h2><strong>Quick start</strong> with our configured Vagrant box <i class="icon icon-bolt"></i></h2>
+
+<ol class="steps">
+  <li>
+    <h3>Initialize local box</h3>
+    <p>
+      There's a public Vagrant box configured to run with Desant. You can hop
+      into the project just by <a href="http://downloads.vagrantup.com/">installing Vagrant</a>
+      and then running:
+    </p>
+<pre><code><i>$</i> vagrant up
+<i>$</i> vagrant ssh
+<i>vagrant@vagrant:~$</i> cd desantapp
+</code></pre>
+  </li>
+  <li>
+    <h3>Process dependencies</h3>
+    <p>Install all the dependencies using Bundler:</p>
+<pre><code><i>vagrant@vagrant:~/desantapp$</i> bundle</code></pre>
+  </li>
+  <li>
+    <h3>Configure environment</h3>
+    <p>Write down your environment configuration file (it contains admin credentials,
+      database configuration, etc):</p>
+<pre><code><i>vagrant@vagrant:~/desantapp$</i> cp .env.sample .env</code></pre>
+    <p>MySQL on attached Vagrant box comes with blank password for the <code>root</code> user.</p>
+  </li>
+  <li>
+    <h3>Set password for admin</h3>
+    <p>Admin area uses very simple, single user authentication. Now generate
+      password hash for your password:</p>
+<pre><code><i>vagrant@vagrant:~/desantapp$</i> rake password_hash PASS=yoursecretpass</code></pre>
+    <p>Copy generated hash and assign it to <code>ADMIN_PASSWORD_HASH</code> in <code>.env</code>.</p>
+  </li>
+  <li>
+    <h3>Migrate database</h3>
+    <p>Last thing to do is to run create databases and run migrations:</p>
+<pre><code><i>vagrant@vagrant:~/desantapp$</i> foreman run 'rake db:create && rake db:migrate'
+</code></pre>
+    <p>As you can se, from now on we must use <code>foreman run</code> to execute commands.
+      It's because all the stuff which is affected by the database requires 
+      its configuration to be loaded. Foreman automatically loads configuration 
+      from the <code>.env</code> file.</p>
+  </li>
+  <li>
+    <h3>Start and enjoy!</h3>
+    <p>Now you should be able to start the application:</p>
+<pre><code><i>vagrant@vagrant:~/desantapp$</i> foreman start</code></pre>
+    <p>If everything went fine, you should go to <code>http://localhost:5000/</code> and see
+      a demo landing page! Use <code>http://localhost:5000/admin/</code> to access admin
+      area.</p>
+  </li>
+</ol>
+
+          </div>
+        </div>
+        </div>
+        
+        <div class="share">
+          <div class="vessel">
+            <a href="#share" id="share" name="share"></a>
+            <h2>Don't forget to <strong>spread the word</strong> <i class="icon icon-bullhorn"></i></h2>
+
+            <div class="social">
+              <ul>
+                <li><a href="" class="socialBtn" rel="github" title="Watch on Github!"><i class="icon icon-github"></i><span class="count">...</span></a></li>
+                <li><a href="" class="socialBtn" rel="twitter" title="Tweet this page!"><i class="icon icon-twitter"></i><span class="count">...</span></a></li>
+                <li><a href="" class="socialBtn" rel="facebook" title="Share on Facebook!"><i class="icon icon-facebook"></i><span class="count">...</span></a></li>
+                <li><a href="" class="socialBtn" rel="plusone" title="Google +1"><i class="icon icon-google-plus"></i><span class="count">...</span></a></li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer role="contentinfo" class="smooth_wall">
+        <div class="vessel">
+          <p>
+            This project is maintained by <a href="https://github.com/nu7hatch">nu7hatch</a><br />
+            <small>Hosted on GitHub Pages</small>
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    
+    <script src="https://apis.google.com/js/plusone.js"></script>
+    <script src="http://platform.twitter.com/widgets.js"></script>
+    <script src="/assets/main.js"></script>
+    <script src="/social/count.js?url=http://desantapp.com/&github_repo=nu7hatch/desantapp&networks=facebook,twitter,github,plusone&cb=updateSocialCounters"></script>
+
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+      var pageTracker = _gat._getTracker("UA-33582650-1");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+
+  </body>
+</html>
