@@ -3,7 +3,7 @@ GEM
   specs:
     daemons (1.1.8)
     eventmachine (0.12.10)
-    exoteric (0.1.1)
+    exoteric (0.1.3)
       json
       rack
       rest-client
