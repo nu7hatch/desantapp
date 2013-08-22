@@ -1,13 +1,6 @@
 <div id="flash"></div>
 
-<form action="/signup" id="signup_form" class="signup" method="post">
-  <div class="formrow">
-    <label for="signup_email" id="signup_email_label">Email</label>
-    <div class="padded">
-      <input placeholder="Your e-mail address..." type="text" name="signup[email]" id="signup_email" value="">
-    </div>
-  </div>
-  <div class="buttons">
-    <input type="submit" id="signup_form_submit" class="submit" value="Sign up!">
-  </div>
+<form action="/signup" id="signup_form" class="form-inline signup" method="post">
+  <input type="text" class="input-large tall" placeholder="Ingresa tu correo electrónico" name="signup[email]" id="signup_email">
+  <button type="submit" id="signup_form_submit" class="btn btn-large">Registrarme!</button>
 </form>
