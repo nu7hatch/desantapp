@@ -23,7 +23,7 @@ Desant.SignupSubmitButtonView = Backbone.View.extend({
         signup.save({}, {
             success: function(model, resp) {
                 Desant.signupFormView.render()
-                Desant.renderFlash('success', 'Thanks for registering!')
+                Desant.renderFlash('success', 'Gracias por registrate!')
             },
 
             error: function(model, resp) {

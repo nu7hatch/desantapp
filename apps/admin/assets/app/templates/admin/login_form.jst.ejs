@@ -1,29 +1,22 @@
-<div class="big-logo vessel">
-  <h1>Desant App</h1>
-</div>
-
 <div class="vessel login_form_vessel">
   <div id="flash"></div>
   <div class="login_form_wrapper">
-    <h2>Log in to admin area</h2>
+    <h2>Administración</h2>
     <form action="/admin/login" method="post" class="login" id="login_form">
       <div class="fields">
         <div class="formrow">
-          <label for="login_user" id="login_user_label"><i class="icon-user"></i> Login</label>
           <div class="padded">
-            <input placeholder="Enter your user name" type="text" name="login" id="login_user" value="">
+            <input placeholder="Usuario" type="text" name="login" id="login_user" value="">
           </div>
         </div>
         <div class="formrow">
-          <label for="login_password" id="login_password_label"><i class="icon-lock"></i> Password</label>
           <div class="padded">
-            <input placeholder="Enter your password" type="password" name="password" id="login_password" value="">
+            <input placeholder="Contraseña" type="password" name="password" id="login_password" value="">
           </div>
         </div>
       </div>
       <div class="buttons">
-        <input type="submit" id="login_form_submit" class="submit" value="Enter!">
-        <span id="ajax_loader"><img src="/admin/img/171.gif" alt="Loading..."></span>
+        <input type="submit" id="login_form_submit" class="btn btn-large" value="Entrar">
       </div>
     </form>
   </div>
