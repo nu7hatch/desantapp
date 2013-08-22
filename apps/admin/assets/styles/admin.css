@@ -8,9 +8,7 @@
 html {
    height: auto;
 }
-body {
-   background: url('/admin/img/light_wool.png') top left repeat;
-}
+
 body,
 button,
 input,
@@ -37,7 +35,6 @@ a:hover, a:active {
 .vessel {
    width: 800px;
    margin: 0 auto;
-   font-family: 'Droid Sans', sans-serif;
 }
 .login_form_vessel {
    width: 460px;
@@ -45,80 +42,35 @@ a:hover, a:active {
    position: relative;
 }
 .login_form_wrapper {
-   background: #3322BB url("/admin/img/bright_squares.png") top left repeat;
    padding: 2em 2em 2em 2em;
    box-shadow: inset 0 0 2px rgba(0,0,0,.7);
 }
 .login_form_wrapper h2 {
-   font-family: 'Bevan', serif;
    font-size: 1.6em;
    font-weight: normal;
-   color: #FFF;
    margin: 0 0 .5em 0;
    text-align: center;
-   text-shadow: 2px 2px 1px rgba(0,0,0,.6);
 }
 form.login .formrow .padded {
    padding: 0 8px;
 }
 form.login .formrow input {
    width: 100%;
-   border: 0;
-   background: #DDF;
    font-size: 1em;
    padding: 10px 8px;
-   margin: 0 -8px;
-   border: 1px solid #DDF;
 }
 form.login .formrow input:focus {
    background: #FFF;
-   box-shadow: inset 1px 1px 3px rgba(0,0,0,.7);
 }
 form.login .formrow label {
    padding: 5px 0;
    display: block;
    margin-top: 10px;
-   color: #DDF;
    font-size: .9em;
-   text-shadow: 1px 1px 0 rgba(0,0,0,.3)
 }
 form.login .buttons {
    margin-top: 1.2em;
    text-align: right;
-}
-form.login .buttons .submit {
-   position: relative;
-   z-index: 102;
-   text-align: center;
-   background: #f3a41c;
-   border: none;
-   border: 1px solid #f3aa1c;
-   border-bottom: 1px solid rgb(109,70,1);
-   border-right: 1px solid rgb(109,70,1);
-   box-shadow: 0 0 5px rgba(0,0,0,.5), inset -3px -3px 10px rgba(70,50,0,.3);
-   color: #6d4601;
-   text-shadow: 1px 1px 0 rgba(255,235,100,.8);
-   font-family: 'Bevan', serif;
-   font-size: 1.3em;
-   font-weight: normal;
-   -webkit-border-radius: 3px;
-   -moz-border-radius: 3px;
-   -ms-border-radius: 3px;
-   -o-border-radius: 3px;
-   border-radius: 3px;
-   padding: 1px 25px;
-   height: 46px;
-   margin-right: -2px;
-}
-form.login .buttons .submit:hover {
-   background: #e3941c;
-   box-shadow: 0 0 5px rgba(0,0,0,.3), inset 3px 3px 10px rgba(255,235,100,.2);
-}
-form.login .buttons .submit:active {
-   border: 1px solid #f3aa1c;
-   border-top: 1px solid rgb(109,70,1);
-   border-left: 1px solid rgb(109,70,1);
-   padding: 2px 24px 0 26px;
 }
 form.login .buttons #ajax_loader {
    float: left;
@@ -187,18 +139,6 @@ form.login .buttons #ajax_loader {
    margin-left: -25px;
    margin-right: -25px;
 }
-.big-logo {
-   margin-top: 30px;
-   position: relative;
-   z-index: 2000;
-}
-.big-logo h1 {
-   text-indent: -9999px;
-   margin: 0 0 -20px 0;
-   padding: 0;
-   background: url('/admin/img/logo2.png') bottom center no-repeat;
-   height: 150px;
-}
 .logo {
    float: left;
    position: relative;
@@ -208,15 +148,9 @@ form.login .buttons #ajax_loader {
    margin: 0;
    padding: .2em 0;
    display: inline-block;
-   color: #FFF;
-   font-family: Bevan, serif;
    font-weight: normal;
-   color: rgba(0,0,0,.55);
-   text-shadow: 0 1px 0 rgba(255,255,255,.25);
-   text-indent: -9999px;
    height: 32px;
    width: 120px;
-   background: url('/admin/img/logo.png') bottom left no-repeat;
 }
 #navbar #ajax_loader {
    position: absolute;
@@ -224,7 +158,7 @@ form.login .buttons #ajax_loader {
    left: 112px;
 }
 #navbar {
-   background: #3322BB url("/admin/img/bright_squares.png") top left repeat;
+   background: #3322BB;
    border-bottom: 1px solid rgba(0,0,0,.4);
    box-shadow: 0 1px 1px rgba(0,0,0,.5), inset 0px -1px 1px rgba(255,255,255,.5);
    position: fixed;
@@ -270,15 +204,9 @@ form.login .buttons #ajax_loader {
    margin: 0 0 0 1px;
 }
 #content h2 {
-   font-family: Bevan, serif;
-   font-size: 2.1em;
    font-weight: normal;
    margin: -24px -24px 1px -24px;
    padding: 15px 24px 30px 24px;
-   border-bottom: 1px solid #888;
-   color: #888;
-   background: #EEE url("/admin/img/white_texture.png") repeat;
-   text-shadow: 1px 1px 0 rgba(255,255,255,.9);
 }
 #content h2 i {
    font-size: .7em;
@@ -306,7 +234,7 @@ form.login .buttons #ajax_loader {
    margin: 0 -24px -24px -24px;
 }
 table.listing {
-   width: 100%;'
+   width: 100%;
    border-spacing: 0;
    *border-collapse: collapse;
 }
@@ -321,7 +249,14 @@ table.listing thead th {
    padding: .5em 0;
    font-weight: normal;
    text-shadow: 1px 1px 0 rgba(0,0,0,.8);
-}
+}    <title>DATOS.GOB.MX</title>
+    <meta name="description" content="El portal de datos abiertos del Gobierno de México.">
+    <meta name="author" content="Coordinación de Estrategia Digital Nacional">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Bevan|Droid+Sans:400,700" type="text/css">
+    <link rel="stylesheet" href="/assets/style.css?2">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
 table.listing tbody tr td {
    color: #444;
    padding: .5em .1em;

@@ -3,6 +3,7 @@
 //= require backbone-0.9.2.min
 //= require moment-1.6.2.min
 //= require d3-2.9.1.min
+//= require bootstrap.min
 //
 //= require_self
 //
