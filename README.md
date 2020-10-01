@@ -7,13 +7,13 @@ land with the purpose of power projection ashore by forces coming usually
 from ships and also aircraft and able to fight.
 </blockquote>
 
-# Desant - Open source landing pages!
+# Desant - An open source landing pages!
 
 _Desant_ is an open source, neat landing page application. It's simple to
 use, customize and extend to your needs. There's an awesome admin area
 too - it will give you all the information and statistics you need.
 
-## Demo
+## Practical Demo 
 
 You can check online demo of the admin on [**here**](http://demo.desantapp.com/admin).
 Login as `admin` with password `pass`.
